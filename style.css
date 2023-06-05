@@ -1,0 +1,81 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-nav {
+    margin: auto;
+}
+
+#welcome {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('images/happy-office.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.welcome-text {
+    color: rgb(250, 255, 255);
+    z-index: 1;
+    padding: 5%;
+}
+
+.welcome-text h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+}
+
+.welcome-text h3 {
+    font-weight: normal;
+}
+
+.welcome-text h3 {
+    padding: 5%;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    color: rgb(81, 221, 240);
+}
+
+.social-icons i {
+    font-size: 24px;
+    margin: 5%;
+    padding: 5%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.social-icons i:hover {
+    transform: translateY(-5px);
+}
+
+.fa-whatsapp {
+    color: rgb(84, 208, 84);
+}
+
+@media (max-width: 768px) {
+    .social-icons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
