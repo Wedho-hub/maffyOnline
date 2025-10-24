@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.site-footer {
+  background: linear-gradient(180deg, #135e5e 0%, #0f4b4b 100%);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+
+.footer-brand {
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+
+.brand-highlight {
+  color: #e06b88;
+}
+
+.footer-desc {
+  font-size: 0.95rem;
+  color: #eaeaea;
+  line-height: 1.6;
+}
+
+.footer-heading {
+  color: #f5b8c4;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.8px;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #e06b88;
+  padding-left: 4px;
+}
+
+.footer-social a {
+  color: #f5b8c4;
+  font-size: 1.2rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.footer-divider {
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.text-muted {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+@media (max-width: 768px) {
+  .footer-links a {
+    display: inline-block;
+    margin-right: 1rem;
+  }
+  .footer-social {
+    margin-top: 1rem;
+  }
+}

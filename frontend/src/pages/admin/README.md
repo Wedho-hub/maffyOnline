@@ -1,0 +1,1 @@
+Admin area: Login at /admin/login then visit /admin/dashboard. This is a minimal skeleton — build forms for create/update/delete using the API endpoints under /api/*. Ensure an admin user exists in the backend (register via /api/auth/register or seed the DB).

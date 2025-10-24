@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.navbar {
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.brand-text {
+  font-size: 1.4rem;
+  color: #135e5e; /* Emerald green */
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease;
+}
+
+.brand-text:hover {
+  color: #e06b88;
+}
+
+.brand-highlight {
+  color: #e06b88; /* Rose pink accent */
+}
+
+/* Nav links */
+.navbar-nav .nav-link {
+  color: #333;
+  font-weight: 500;
+  margin-right: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #e06b88;
+}
+
+.navbar-nav .nav-link.active {
+  color: #e06b88;
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #e06b88;
+  bottom: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+  width: 100%;
+}
+
+/* Contact button */
+.btn-main.nav-btn {
+  background-color: #e06b88;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-main.nav-btn:hover {
+  background-color: #c85d7a;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(224, 107, 136, 0.4);
+}
+
+/* Navbar shadow on scroll */
+.navbar.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Mobile view */
+@media (max-width: 991px) {
+  .navbar-nav {
+    background: #fff;
+    border-top: 1px solid #f3f3f3;
+    margin-top: 1rem;
+    padding-top: 1rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.75rem 0;
+    margin-right: 0;
+  }
+
+  .btn-main.nav-btn {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+}

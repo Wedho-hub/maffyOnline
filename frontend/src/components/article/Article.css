@@ -1,0 +1,2 @@
+.article-card{ transition: box-shadow .15s; }
+.article-card:hover{ box-shadow: 0 6px 20px rgba(0,0,0,.08); }
