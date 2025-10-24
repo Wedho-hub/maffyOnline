@@ -1,0 +1,78 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Env files
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+pids/
+*.pid
+*.seed
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
+
+# Build outputs
+dist/
+build/
+frontend/dist/
+frontend/node_modules/
+backend/node_modules/
+
+# Vite cache
+node_modules/.vite
+
+# Coverage
+coverage/
+
+# Temporary
+tmp/
+temp/
+
+# Lock files (optional to ignore if you manage per-project)
+# package-lock.json
+# yarn.lock
+
+# OneDrive or syncing artifacts
+~$*
+
+# Mac/Windows file locks
+*.swp
+.idea/
+
+# Test snapshots
+*.snap
+
+# Misc
+.DS_Store
+npm-debug.log
+.pnpm-store/
+
+# Logs from VS
+*.vs/
+
+# Secret files
+*.pem
+*.key
+
+# Local env for frontend (Vite)
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# Local env for backend
+backend/.env.local
+backend/.env.development.local
+backend/.env.test.local
+backend/.env.production.local
