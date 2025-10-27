@@ -87,6 +87,23 @@
   border-radius: 3px;
 }
 
+/* --- SIMPLE SERVICE LIST FOR HOME --- */
+.services-list { margin-top: 1rem; }
+.service-item { display: flex; align-items: center; justify-content: center; }
+.service-name {
+  font-weight: 600;
+  color: #135e5e;
+  background: rgba(224,107,136,0.06);
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+  min-height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.service-name:hover { transform: translateY(-3px); transition: transform 160ms ease; }
+
 /* --- CTA SECTION --- */
 .cta-section {
   background: linear-gradient(135deg, #e06b88 0%, #f6c5d2 100%);

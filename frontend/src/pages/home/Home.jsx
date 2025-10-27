@@ -1,5 +1,4 @@
 import React from 'react';
-import Article from '../../components/article/Article';
 import './Home.css';
 
 const Home = () => {
@@ -29,10 +28,10 @@ const Home = () => {
       <section className="services-section py-5">
         <div className="container">
           <h2 className="section-title text-center mb-5">Our Core Services</h2>
-          <div className="row g-4">
+          <div className="row g-4 services-list">
             {coreServices.map((s, idx) => (
-              <div key={idx} className="col-md-3">
-                <Article title={s.title} excerpt={s.description} href="/services" />
+              <div key={idx} className="col-6 col-md-3 service-item">
+                <div className="service-name">{s.title}</div>
               </div>
             ))}
           </div>
