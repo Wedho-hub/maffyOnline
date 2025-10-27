@@ -1,1 +1,38 @@
+/* Theme colors already defined in Home.css; local tweaks for services page */
+.services-list .service-card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  padding: 1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.services-list .service-card:hover { transform: translateY(-6px); box-shadow: 0 10px 28px rgba(0,0,0,0.08); }
+.service-title { color: #135e5e; font-weight:600 }
+.service-summary { color: #444; }
+.service-actions { margin-top: 0.8rem }
+.btn-read { background: #e06b88; color: #fff; border-radius: 999px; padding: 0.45rem 0.9rem; border: none }
+.btn-read:hover { background:#c85d7a }
+
+.service-full { margin-top:0.6rem; color:#333; }
+
+@media (max-width:768px){ .services-list .service-card{ padding:0.8rem } }
+
+/* Modal styles */
+.services-modal { position: fixed; inset: 0; z-index: 1050; display:flex; align-items:center; justify-content:center; }
+.services-modal-backdrop { position: absolute; inset:0; background: rgba(0,0,0,0.45); }
+.services-modal-panel { position: relative; z-index: 1060; max-width:900px; width:92%; border-radius:12px; box-shadow: 0 12px 40px rgba(0,0,0,0.25); overflow:hidden; }
+.services-modal-panel .card-body { max-height: 70vh; overflow:auto; }
+.services-modal-panel h4 { color:#135e5e }
+
+/* modal animations and content */
+.animate-modal { animation: modalPop .18s cubic-bezier(.22,.9,.32,1) both; }
+@keyframes modalPop { from { transform: scale(.98); opacity:0 } to { transform: scale(1); opacity:1 } }
+
+.modal-image { width:120px; height:120px; object-fit:cover; border-radius:8px; box-shadow: 0 6px 18px rgba(0,0,0,0.08) }
+.modal-icon { width:56px; height:56px }
+
+.services-modal-panel .btn-outline-secondary { border-radius: 8px }
+.btn-read { transition: transform 160ms ease, box-shadow 160ms ease }
+.btn-read:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(224,107,136,0.18) }
+
 /* placeholder for typo filename — not used */

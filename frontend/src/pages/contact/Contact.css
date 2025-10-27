@@ -1,1 +1,7 @@
+/* Contact form styles */
+.contact-page { max-width:900px; margin:0 auto; }
+.contact-card { padding:1.5rem; border-radius:12px; box-shadow:0 10px 30px rgba(0,0,0,0.06); }
+.contact-actions { display:flex; gap:0.75rem; align-items:center }
+.contact-success { background: linear-gradient(90deg, rgba(14,126,126,0.08), rgba(224,107,136,0.05)); padding:1rem; border-radius:8px; color:#135e5e; }
+.contact-note { color:#666; font-size:0.95rem }
 /* contact page */

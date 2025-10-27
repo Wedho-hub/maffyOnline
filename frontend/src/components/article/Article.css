@@ -1,2 +1,8 @@
 .article-card{ transition: box-shadow .15s; }
 .article-card:hover{ box-shadow: 0 6px 20px rgba(0,0,0,.08); }
+
+/* Animated entry for cards */
+.animate-card{ transform: translateY(6px); opacity: 0; animation: cardIn .5s ease forwards; }
+@keyframes cardIn{ from { transform: translateY(12px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+
+.article-icon{ display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; flex-shrink:0 }

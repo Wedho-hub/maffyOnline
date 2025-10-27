@@ -1,2 +1,11 @@
+/* Testimonials themed styles */
+.testimonials-grid { gap: 1rem }
+.testimonial-card { border-radius: 12px; box-shadow: 0 8px 22px rgba(0,0,0,0.06); padding:1rem }
+.testimonial-name { color: var(--site-emerald); font-weight:700 }
+.testimonial-role { color:#666; font-size:0.9rem }
+.testimonial-message { margin-top:0.6rem; color:#333 }
+.testimonial-avatar { width:64px; height:64px; border-radius:8px; object-fit:cover }
+
+.testimonials-empty { text-align:center; color:#666; padding:2rem }
 /* testimonials */
 .card{ border-radius:8px; }

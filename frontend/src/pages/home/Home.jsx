@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Article from '../../components/article/Article';
-import API from '../../services/api';
 import './Home.css';
 
 const Home = () => {
-  const [services, setServices] = useState([]);
-
-  useEffect(() => {
-    API.get('/api/services')
-      .then(res => setServices(res.data))
-      .catch(() => {});
-  }, []);
+  // core short list for the home page (brief display)
+  const coreServices = [
+    { title: 'Global recruitment', description: 'Sourcing and placing top talent across borders to meet your strategic hiring needs.' },
+    { title: 'Onboarding', description: 'Smooth, structured onboarding programs to integrate new hires quickly and effectively.' },
+    { title: 'HR policies & procedures', description: 'Clear, compliant HR policies and practical procedures tailored to your business.' },
+    { title: 'Training & development', description: 'Upskilling programs and training pathways to grow employee capability.' },
+  ];
 
   return (
     <div className="home-page">
@@ -31,19 +30,11 @@ const Home = () => {
         <div className="container">
           <h2 className="section-title text-center mb-5">Our Core Services</h2>
           <div className="row g-4">
-            {services.length ? (
-              services.slice(0, 3).map((s) => (
-                <div key={s._id} className="col-md-4">
-                  <Article
-                    title={s.title}
-                    excerpt={s.description}
-                    href={`/services`}
-                  />
-                </div>
-              ))
-            ) : (
-              <div className="col-12 text-center text-muted">No services available yet.</div>
-            )}
+            {coreServices.map((s, idx) => (
+              <div key={idx} className="col-md-3">
+                <Article title={s.title} excerpt={s.description} href="/services" />
+              </div>
+            ))}
           </div>
           <div className="text-center mt-4">
             <a href="/services" className="btn btn-outline-main">View All Services</a>

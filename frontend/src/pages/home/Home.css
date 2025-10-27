@@ -1,11 +1,5 @@
-/* Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
-.home-page {
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-  background-color: #fff;
-}
+/* removed local font import in favor of global fonts.css */
+.home-page { color: #333; background-color: #fff; }
 
 /* --- HERO SECTION --- */
 .hero {
@@ -15,12 +9,26 @@
   color: #222;
   border-bottom: 4px solid #f5b8c4;
   padding: 6rem 0;
+  background: linear-gradient(90deg, rgba(13,110,253,.06), rgba(102,16,242,.03)); 
+  padding-top:80px; 
+  padding-bottom:80px; 
 }
 
 .hero-title {
   color: #e06b88; /* Feminine blush pink */
   text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
 }
+
+/* Hero animation */
+.hero .display-5 { transform: translateY(8px); opacity: 0; animation: heroIn 600ms ease forwards; }
+@keyframes heroIn { from { transform: translateY(18px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+
+/* service cards stagger animation */
+.row.g-3 .article-card { opacity:0; transform: translateY(12px); animation: serviceIn .5s ease forwards; }
+.row.g-3 .col-md-4:nth-child(1) .article-card { animation-delay: 0.08s }
+.row.g-3 .col-md-4:nth-child(2) .article-card { animation-delay: 0.16s }
+.row.g-3 .col-md-4:nth-child(3) .article-card { animation-delay: 0.24s }
+@keyframes serviceIn { from { opacity:0; transform: translateY(12px) } to { opacity:1; transform: translateY(0) } }
 
 .hero-subtitle {
   max-width: 650px;

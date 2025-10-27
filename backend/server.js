@@ -6,6 +6,9 @@ import authRoutes from "./routes/auth.js";
 import postsRoutes from "./routes/posts.js";
 import servicesRoutes from "./routes/services.js";
 import testimonialsRoutes from "./routes/testimonials.js";
+import siteRoutes from "./routes/site.js";
+import uploadsRoutes from "./routes/uploads.js";
+import path from 'path';
 
 dotenv.config();
 connectDB();
@@ -19,6 +22,12 @@ app.use("/api/auth", authRoutes);
 app.use("/api/posts", postsRoutes);
 app.use("/api/services", servicesRoutes);
 app.use("/api/testimonials", testimonialsRoutes);
+// site content (about/home) and uploads
+app.use('/api/site', siteRoutes);
+app.use('/api/uploads', uploadsRoutes);
+
+// serve uploaded files
+app.use('/uploads', express.static(path.join(process.cwd(), 'backend', 'uploads')));
 
 app.get("/", (req, res) => {
   res.send("API is running...");

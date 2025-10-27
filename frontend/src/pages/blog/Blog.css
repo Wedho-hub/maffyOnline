@@ -1,1 +1,45 @@
+
+/* Blog: professional layout and spacing */
+.blog-page {
+	padding-top: 2rem;
+	padding-bottom: 3rem;
+}
+
+.blog-page .hero {
+	text-align: center;
+	max-width: 900px;
+	margin: 0 auto 2rem auto;
+}
+
+.blog-page .hero h1 { font-size: 2.25rem; letter-spacing: -0.5px; margin-bottom: .5rem }
+.blog-page .hero .lead { color: #555; max-width: 780px; margin: 0 auto }
+
+.blog-list .card { transition: transform .18s ease, box-shadow .18s ease; border-radius: 12px; overflow: hidden }
+.blog-list .card:hover { transform: translateY(-6px); box-shadow: 0 18px 50px rgba(0,0,0,0.09) }
+.blog-meta { color: #777; font-size: .9rem }
+.blog-excerpt { color: #333 }
+.blog-grid { gap: 1.5rem }
+
+.blog-empty { text-align:center; color:#666; padding:3rem 0 }
+
+/* Read more style used inside Article */
+.article-card .btn { border-radius: 999px }
+
+/* Modal (expanded post) */
+.blog-modal { position: fixed; inset: 0; z-index: 1200; display:flex; align-items:center; justify-content:center }
+.blog-modal-backdrop { position:absolute; inset:0; background: rgba(0,0,0,0.5) }
+.blog-modal-panel { position: relative; z-index: 1210; max-width:980px; width:94%; background:#fff; border-radius:12px; box-shadow: 0 30px 80px rgba(0,0,0,0.22); overflow:hidden }
+.blog-modal-body { max-height: 78vh; overflow:auto; padding:1.6rem }
+.blog-modal-header { display:flex; justify-content:space-between; align-items:center; gap:1rem }
+.blog-modal-title { font-size:1.4rem; color:var(--site-emerald); margin:0 }
+.blog-modal-meta { color:#777; font-size:.95rem }
+.blog-modal-image { width:220px; height:140px; object-fit:cover; border-radius:8px; margin-left:1rem }
+
+.blog-modal-close { background:transparent; border:1px solid rgba(0,0,0,0.08); padding:.45rem .6rem; border-radius:8px; cursor:pointer }
+.blog-modal-close:hover { background:#f8f8f8 }
+
+@media (max-width: 767px) {
+	.blog-modal-image { display:none }
+	.blog-modal-panel { width: 96%; }
+}
 /* blog styles */

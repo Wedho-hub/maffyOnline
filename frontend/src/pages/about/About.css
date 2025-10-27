@@ -1,2 +1,55 @@
-/* About page spacing */
-.about-page{ max-width:900px; }
+/* About page styles matching theme */
+.about-page { color: #333; }
+
+.about-figure { margin: 0; }
+
+/* Make image fill the column height on larger screens while keeping mobile stacking intact */
+.about-image {
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
+	box-shadow: 0 8px 24px rgba(13, 110, 253, 0.06);
+	object-fit: cover;
+}
+
+@media (min-width: 768px) {
+	/* make the bootstrap row columns stretch to equal height so the image can fill vertically */
+	.about-page .row { align-items: stretch; }
+	.about-figure { height: 100%; }
+	.about-image { height: 100%; }
+}
+
+.values-list {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem 1rem;
+	margin-top: 0.5rem;
+}
+
+.value-item {
+	background: #f8f9fa;
+	padding: 0.45rem 0.9rem;
+	border-radius: 18px;
+	font-weight: 600;
+	color: #135e5e;
+	border: 1px solid rgba(19,94,94,0.06);
+}
+
+/* Small screens — ensure image stacks above text */
+@media (max-width: 767px) {
+	.about-figure { max-width: 100%; margin-bottom: 1rem; }
+	.about-image { height: auto; }
+}
+
+/* Improve typography */
+.about-page h1, .about-page h2 { color: #135e5e; }
+.about-page p { line-height: 1.6; }
+
+/* small animations */
+.about-page .display-6 { transform: translateY(8px); opacity: 0; animation: heroIn 600ms ease forwards; }
+@keyframes heroIn { from { transform: translateY(18px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+
+.value-item { display:inline-flex; align-items:center; gap:0.5rem; padding:0.4rem 0.9rem }
+.value-icon { color:#e06b88; font-size:1.05rem }
