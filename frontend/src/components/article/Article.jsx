@@ -5,8 +5,8 @@ const Icon = () => (
   <span className="article-icon" aria-hidden>
     {/* simple themed circle icon */}
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="12" cy="12" r="10" fill="#E06B88" opacity="0.12" />
-      <circle cx="12" cy="12" r="4" fill="#135e5e" />
+  <circle cx="12" cy="12" r="10" fill="var(--brand-gold)" opacity="0.12" />
+  <circle cx="12" cy="12" r="4" fill="var(--brand-charcoal)" />
     </svg>
   </span>
 );

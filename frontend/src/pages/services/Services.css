@@ -7,11 +7,11 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .services-list .service-card:hover { transform: translateY(-6px); box-shadow: 0 10px 28px rgba(0,0,0,0.08); }
-.service-title { color: #135e5e; font-weight:600 }
+.service-title { color: var(--brand-charcoal); font-weight:600 }
 .service-summary { color: #444; }
 .service-actions { margin-top: 0.8rem }
-.btn-read { background: #e06b88; color: #fff; border-radius: 999px; padding: 0.45rem 0.9rem; border: none }
-.btn-read:hover { background:#c85d7a }
+.btn-read { background: var(--brand-gold); color: var(--brand-black); border-radius: 999px; padding: 0.45rem 0.9rem; border: none }
+.btn-read:hover { background: color-mix(in srgb, var(--brand-gold) 78%, black 12%)}
 
 .service-full { margin-top:0.6rem; color:#333; }
 
@@ -22,7 +22,7 @@
 .services-modal-backdrop { position: absolute; inset:0; background: rgba(0,0,0,0.45); }
 .services-modal-panel { position: relative; z-index: 1060; max-width:900px; width:92%; border-radius:12px; box-shadow: 0 12px 40px rgba(0,0,0,0.25); overflow:hidden; }
 .services-modal-panel .card-body { max-height: 70vh; overflow:auto; }
-.services-modal-panel h4 { color:#135e5e }
+.services-modal-panel h4 { color:var(--brand-charcoal) }
 
 /* modal animations and content */
 .animate-modal { animation: modalPop .18s cubic-bezier(.22,.9,.32,1) both; }
@@ -33,6 +33,6 @@
 
 .services-modal-panel .btn-outline-secondary { border-radius: 8px }
 .btn-read { transition: transform 160ms ease, box-shadow 160ms ease }
-.btn-read:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(224,107,136,0.18) }
+.btn-read:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.12) }
 
 /* placeholder for typo filename — not used */

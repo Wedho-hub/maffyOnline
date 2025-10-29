@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaFacebook, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   const year = new Date().getFullYear();
@@ -35,13 +36,13 @@ const Footer = () => {
           {/* Contact Info */}
           <div className="col-md-4">
             <h6 className="footer-heading mb-3">Contact Us</h6>
-            <p className="mb-1"><i className="bi bi-geo-alt-fill me-2"></i>Harare, Zimbabwe</p>
-            <p className="mb-1"><i className="bi bi-envelope-fill me-2"></i>info@maffyonline.co.zw</p>
-            <p><i className="bi bi-telephone-fill me-2"></i>+263 77 123 4567</p>
+            <p className="mb-1"><FaMapMarkerAlt className="me-2" />211 Josiah Tongogara Ave, Harare</p>
+            <p className="mb-1"><FaEnvelope className="me-2" /><a href="mailto:hello@maffyonline.co.zw">hello@maffyonline.co.zw</a></p>
+            <p><FaPhone className="me-2" /><a href="tel:+263773527905">+263 773 527 905</a></p>
             <div className="footer-social mt-3">
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="me-3"><i className="bi bi-facebook"></i></a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="me-3"><i className="bi bi-linkedin"></i></a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer"><i className="bi bi-instagram"></i></a>
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="me-3"><FaFacebook /></a>
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="me-3"><FaLinkedin /></a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer"><FaInstagram /></a>
             </div>
           </div>
         </div>

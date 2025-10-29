@@ -2,17 +2,17 @@
 
 .brand-text {
   font-size: 1.4rem;
-  color: #135e5e; /* Emerald green */
+  color: var(--brand-black);
   letter-spacing: 0.5px;
   transition: color 0.3s ease;
 }
 
 .brand-text:hover {
-  color: #e06b88;
+  color: var(--brand-gold);
 }
 
 .brand-highlight {
-  color: #e06b88; /* Rose pink accent */
+  color: var(--brand-gold);
 }
 
 /* Nav links */
@@ -25,11 +25,11 @@
 }
 
 .navbar-nav .nav-link:hover {
-  color: #e06b88;
+  color: var(--brand-gold);
 }
 
 .navbar-nav .nav-link.active {
-  color: #e06b88;
+  color: var(--brand-gold);
   font-weight: 600;
 }
 
@@ -38,7 +38,7 @@
   position: absolute;
   width: 0%;
   height: 2px;
-  background-color: #e06b88;
+  background-color: var(--brand-gold);
   bottom: 0;
   left: 0;
   transition: width 0.3s ease;
@@ -51,8 +51,8 @@
 
 /* Contact button */
 .btn-main.nav-btn {
-  background-color: #e06b88;
-  color: #fff;
+  background-color: var(--brand-gold);
+  color: var(--brand-black);
   border: none;
   border-radius: 25px;
   padding: 0.5rem 1.5rem;
@@ -61,9 +61,9 @@
 }
 
 .btn-main.nav-btn:hover {
-  background-color: #c85d7a;
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(224, 107, 136, 0.4);
+  background-color: color-mix(in srgb, var(--brand-gold) 80%, black 10%);
+  color: var(--brand-black);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
 }
 
 /* Navbar shadow on scroll */

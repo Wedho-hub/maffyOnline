@@ -31,7 +31,7 @@
 .blog-modal-panel { position: relative; z-index: 1210; max-width:980px; width:94%; background:#fff; border-radius:12px; box-shadow: 0 30px 80px rgba(0,0,0,0.22); overflow:hidden }
 .blog-modal-body { max-height: 78vh; overflow:auto; padding:1.6rem }
 .blog-modal-header { display:flex; justify-content:space-between; align-items:center; gap:1rem }
-.blog-modal-title { font-size:1.4rem; color:var(--site-emerald); margin:0 }
+.blog-modal-title { font-size:1.4rem; color:var(--brand-charcoal); margin:0 }
 .blog-modal-meta { color:#777; font-size:.95rem }
 .blog-modal-image { width:220px; height:140px; object-fit:cover; border-radius:8px; margin-left:1rem }
 

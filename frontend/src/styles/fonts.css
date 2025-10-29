@@ -4,21 +4,29 @@
 :root{
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --site-accent: #e06b88;
-  --site-emerald: #135e5e;
+  /* Brand palette */
+  --brand-black: #0a0a0a;
+  --brand-white: #ffffff;
+  --brand-gold: #D4AF37; /* primary gold tone */
+  --brand-charcoal: #1f2933; /* complementary dark charcoal */
+
+  /* Backwards-compatible tokens used across the codebase */
+  --site-accent: var(--brand-gold);
+  --site-emerald: var(--brand-charcoal);
 }
 
 /* sensible global resets for typography */
 html,body{ height:100%; }
 body{
   font-family: var(--font-sans);
-  color: #222;
+  color: var(--brand-black);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
 
-h1,h2,h3,h4,h5,h6{ font-family: var(--font-serif); color: var(--site-emerald); }
-a{ color: var(--site-accent); }
+h1,h2,h3,h4,h5,h6{ font-family: var(--font-serif); color: var(--brand-black); }
+/* links and accents use gold */
+a{ color: var(--brand-gold); }
 
 /* utility to use serif for blocks */
 .serif { font-family: var(--font-serif); }

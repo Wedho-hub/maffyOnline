@@ -3,6 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { Link, NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Navbar.css';
+import { FaPhone } from 'react-icons/fa';
+
+// logo is served from public/images
+const logo = '/images/logo.jpg';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -14,8 +18,9 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
       <div className="container">
-        <Link className="navbar-brand fw-bold brand-text" to="/" onClick={close}>
-          <span className="brand-highlight">Maffy</span> Online
+        <Link className="navbar-brand fw-bold brand-text d-flex align-items-center" to="/" onClick={close}>
+          <img src={logo} alt="Maffy Online" style={{height:36, width:'auto', objectFit:'contain', marginRight:10, borderRadius:6}} />
+          <span><span className="brand-highlight">Maffy</span> Online</span>
         </Link>
 
         <button
@@ -47,8 +52,8 @@ const Navbar = () => {
               <NavLink className="nav-link" to="/testimonials" onClick={close}>Testimonials</NavLink>
             </li>
             <li className="nav-item ms-lg-2">
-              <NavLink className="btn btn-main nav-btn" to="/contact" onClick={close}>
-                Contact
+              <NavLink className="btn btn-main nav-btn d-flex align-items-center gap-2" to="/contact" onClick={close}>
+                <FaPhone /> Contact
               </NavLink>
             </li>
             {/* auth / admin links */}

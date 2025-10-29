@@ -1,6 +1,6 @@
 .site-footer {
-  background: linear-gradient(180deg, #135e5e 0%, #0f4b4b 100%);
-  color: #fff;
+  background: linear-gradient(180deg, var(--brand-black) 0%, var(--brand-charcoal) 100%);
+  color: var(--brand-white);
   position: relative;
 }
 
@@ -8,21 +8,21 @@
   font-weight: 600;
   font-size: 1.5rem;
   letter-spacing: 0.5px;
-  color: #fff;
+  color: var(--brand-white);
 }
 
 .brand-highlight {
-  color: #e06b88;
+  color: var(--brand-gold);
 }
 
 .footer-desc {
   font-size: 0.95rem;
-  color: #eaeaea;
+  color: rgba(255,255,255,0.9);
   line-height: 1.6;
 }
 
 .footer-heading {
-  color: #f5b8c4;
+  color: rgba(212,175,55,0.95);
   font-weight: 600;
   text-transform: uppercase;
   font-size: 0.9rem;
@@ -40,18 +40,18 @@
 }
 
 .footer-links a:hover {
-  color: #e06b88;
+  color: var(--brand-gold);
   padding-left: 4px;
 }
 
 .footer-social a {
-  color: #f5b8c4;
+  color: rgba(212,175,55,0.9);
   font-size: 1.2rem;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .footer-social a:hover {
-  color: #fff;
+  color: var(--brand-white);
   transform: translateY(-3px);
 }
 
