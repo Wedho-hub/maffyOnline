@@ -4,29 +4,62 @@
 :root{
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  /* Brand palette */
-  --brand-black: #0a0a0a;
+  /* Brand palette: primary = navy, accent = gold, secondary = cream, black as complement */
+  --brand-primary: #0b2545; /* deep navy */
+  --brand-gold: #D4AF37; /* gold accent */
+  --brand-cream: #FFF7E1; /* light cream/yellow */
+  --brand-black: #0a0a0a; /* used sparingly as a complement */
+  --brand-charcoal: #122033; /* darker navy/charcoal for text */
   --brand-white: #ffffff;
-  --brand-gold: #D4AF37; /* primary gold tone */
-  --brand-charcoal: #1f2933; /* complementary dark charcoal */
+  --brand-burgundy: #7b2d3b; /* minimal artistic burgundy accent */
 
   /* Backwards-compatible tokens used across the codebase */
   --site-accent: var(--brand-gold);
-  --site-emerald: var(--brand-charcoal);
+  --site-emerald: var(--brand-primary);
+  --brand-text: var(--brand-charcoal);
 }
 
 /* sensible global resets for typography */
 html,body{ height:100%; }
 body{
   font-family: var(--font-sans);
-  color: var(--brand-black);
+  color: var(--brand-text);
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 }
 
-h1,h2,h3,h4,h5,h6{ font-family: var(--font-serif); color: var(--brand-black); }
+h1,h2,h3,h4,h5,h6{ font-family: var(--font-serif); color: var(--brand-primary); }
 /* links and accents use gold */
 a{ color: var(--brand-gold); }
 
 /* utility to use serif for blocks */
 .serif { font-family: var(--font-serif); }
+
+/* Reusable decorated helper for subtle background shapes behind text blocks
+   We now use inline SVGs (inserted in JSX) for crisp shapes. Add a small
+   animation and positioning helpers here so the same SVG can be reused. */
+.decorated { position: relative; display: block; }
+.decorated .decoration-svg {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+  transform-origin: center;
+  opacity: 0.12;
+  /* subtle float animation */
+  animation: float-slow 6s ease-in-out infinite alternate;
+}
+.decorated .decoration-svg.small { opacity: 0.11; }
+.decorated .decoration-svg.left { left: -12px; top: -8px; }
+.decorated .decoration-svg.right { right: -8px; bottom: -8px; }
+.decorated .decoration-svg.s-left { left: -10px; top: -6px; width: 96px; height: 44px; }
+.decorated .decoration-svg.s-right { right: -6px; bottom: -6px; width: 48px; height: 48px; }
+
+@keyframes float-slow {
+  from { transform: translateY(-4px) scale(1.00); }
+  to   { transform: translateY(4px) scale(1.01); }
+}
+
+/* general decoration SVG sizing when inserted as top-level page blobs */
+.decoration-blob-svg { position: absolute; pointer-events: none; z-index: 0; opacity: 0.14; animation: float-slow 8s ease-in-out infinite alternate; }
+.decoration-blob-svg.burgundy { fill: var(--brand-burgundy); }
+.decoration-blob-svg.cream { fill: var(--brand-cream); }

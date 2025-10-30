@@ -1,5 +1,5 @@
 .site-footer {
-  background: linear-gradient(180deg, var(--brand-black) 0%, var(--brand-charcoal) 100%);
+  background: linear-gradient(180deg, var(--brand-primary) 0%, var(--brand-charcoal) 100%);
   color: var(--brand-white);
   position: relative;
 }

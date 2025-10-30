@@ -38,6 +38,18 @@
 .blog-modal-close { background:transparent; border:1px solid rgba(0,0,0,0.08); padding:.45rem .6rem; border-radius:8px; cursor:pointer }
 .blog-modal-close:hover { background:#f8f8f8 }
 
+/* subtle decorative accent behind blog hero heading */
+.blog-page .hero::after {
+	content: '';
+	display: block;
+	width: 200px;
+	height: 140px;
+	background: linear-gradient(135deg, rgba(123,45,59,0.12), rgba(212,175,55,0.06));
+	border-radius: 28px;
+	transform: rotate(-6deg);
+	margin: -40px auto 12px auto;
+}
+
 @media (max-width: 767px) {
 	.blog-modal-image { display:none }
 	.blog-modal-panel { width: 96%; }

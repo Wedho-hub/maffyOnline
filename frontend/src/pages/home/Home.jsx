@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 const Home = () => {
@@ -16,11 +17,14 @@ const Home = () => {
       <section className="hero text-center d-flex align-items-center">
         <div className="container">
           <h1 className="display-4 fw-bold hero-title">Maffy Online</h1>
-          <p className="lead hero-subtitle">
+          <p className="lead hero-subtitle decorated small">
+            <svg className="decoration-svg left s-left" viewBox="0 0 120 56" aria-hidden="true" focusable="false">
+              <path d="M6,26 C22,6 74,2 98,10 C122,18 118,42 92,48 C66,54 20,48 6,26 Z" fill="var(--brand-burgundy)" />
+            </svg>
             Empowering Zimbabwean businesses with top-tier talent acquisition and HR solutions.
             We find, vet, and place exceptional professionals so you can focus on growing your brand.
           </p>
-          <a href="/services" className="btn btn-lg btn-main mt-3">Explore Our Services</a>
+          <Link to="/services" className="btn btn-lg btn-main mt-3">Explore Our Services</Link>
         </div>
       </section>
 
@@ -36,7 +40,7 @@ const Home = () => {
             ))}
           </div>
           <div className="text-center mt-4">
-            <a href="/services" className="btn btn-outline-main">View All Services</a>
+            <Link to="/services" className="btn btn-outline-main">View All Services</Link>
           </div>
         </div>
       </section>
@@ -49,7 +53,7 @@ const Home = () => {
             Join hundreds of professionals and companies across Zimbabwe and beyond 
             who trust Maffy Online for recruitment excellence.
           </p>
-          <a href="/contact" className="btn btn-main">Get In Touch</a>
+          <Link to="/contact" className="btn btn-main">Get In Touch</Link>
         </div>
       </section>
     </div>

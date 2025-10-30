@@ -50,7 +50,12 @@ const Services = () => {
 
   return (
     <div>
-      <h1 className="mb-4">Our Services</h1>
+      <h1 className="mb-4 decorated small">
+        <svg className="decoration-svg left s-left" viewBox="0 0 120 56" aria-hidden="true" focusable="false">
+          <path d="M6,26 C22,6 74,2 98,10 C122,18 118,42 92,48 C66,54 20,48 6,26 Z" fill="var(--brand-burgundy)" />
+        </svg>
+        Our Services
+      </h1>
       <div className="row services-list">
         {merged.map(s => (
           <div className="col-md-6 mb-3" key={s.key}>

@@ -6,7 +6,7 @@
   min-height: 90vh;
   position: relative;
   background-image: url('/images/heroBG.jpg');
-  background-position: center 35%; /* shift focal point upwards to reveal face */
+  background-position: center 10%; /* shift focal point upwards to reveal face */
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -24,7 +24,8 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10,10,10,0.45), rgba(10,10,10,0.25));
+  /* navy-tinted overlay so text reads cleanly while preserving image warmth */
+  background: linear-gradient(180deg, rgba(11,37,69,0.6), rgba(11,37,69,0.3));
   z-index: 0;
 }
 

@@ -53,3 +53,26 @@
 
 .value-item { display:inline-flex; align-items:center; gap:0.5rem; padding:0.4rem 0.9rem }
 .value-icon { color:var(--brand-gold); font-size:1.05rem }
+
+/* Replace CSS blobs with inline SVG blobs for crisp rendering and animation */
+.about-page > .container { position: relative; z-index: 2; }
+
+.about-page .decoration-blob-svg {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.14;
+  transform-origin: center;
+}
+.about-page .decoration-blob-svg.burgundy { top: 10%; left: -6%; fill: var(--brand-burgundy); }
+.about-page .decoration-blob-svg.cream   { bottom: 4%; right: -8%; width: 260px; height: 260px; fill: var(--brand-cream); }
+
+/* Decorated sections (use inserted SVGs inside the .decorated block) */
+.about-page .decorated { position: relative; z-index: 2; padding: 0.6rem 0; }
+.about-page .decorated .decoration-svg { position: absolute; pointer-events: none; z-index: 0; opacity: 0.12; animation: float-slow 6s ease-in-out infinite alternate; }
+.about-page .decorated .decoration-svg.left { left: -18px; top: -10px; width: 140px; height: 60px; }
+.about-page .decorated .decoration-svg.right { right: -10px; bottom: -12px; width: 76px; height: 76px; }
+.about-page .decorated.small .decoration-svg.left { width: 90px; height: 44px; left: -12px; top: -6px; }
+.about-page .decorated.small .decoration-svg.right { width: 48px; height: 48px; right: -6px; bottom: -8px; opacity: 0.11; }

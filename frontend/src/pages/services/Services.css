@@ -15,6 +15,17 @@
 
 .service-full { margin-top:0.6rem; color:#333; }
 
+/* small artistic accent for sections: subtle burgundy stripe */
+.services-section::before {
+  content: '';
+  display:block;
+  height: 6px;
+  width: 80px;
+  background: linear-gradient(90deg, var(--brand-burgundy), color-mix(in srgb, var(--brand-burgundy) 60%, var(--brand-gold) 40%));
+  border-radius: 4px;
+  margin: 0.6rem 0 1rem 0;
+}
+
 @media (max-width:768px){ .services-list .service-card{ padding:0.8rem } }
 
 /* Modal styles */

@@ -25,6 +25,23 @@ const About = () => {
 
   return (
     <article className="about-page container my-5">
+      {/* decorative SVG blobs (aria-hidden) */}
+      <svg className="decoration-blob-svg burgundy" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+        <defs>
+          <filter id="blur1" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="12"/></filter>
+        </defs>
+        <g filter="url(#blur1)">
+          <path d="M421,101 C492,154 540,236 520,318 C500,400 400,480 318,480 C236,480 140,420 110,340 C80,260 110,140 190,98 C270,56 350,48 421,101 Z" />
+        </g>
+      </svg>
+      <svg className="decoration-blob-svg cream" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+        <defs>
+          <filter id="blur2" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="10"/></filter>
+        </defs>
+        <g filter="url(#blur2)">
+          <path d="M480,360 C520,420 500,520 420,540 C340,560 260,520 200,480 C140,440 80,340 110,260 C140,180 220,140 300,150 C380,160 440,300 480,360 Z" />
+        </g>
+      </svg>
       <div className="row align-items-start">
         <div className="col-md-4 mb-3">
           <figure className="about-figure">
@@ -39,7 +56,11 @@ const About = () => {
             <p className="lead text-muted">Professional HR & Talent Acquisition services for Zimbabwean organisations and regional clients.</p>
           </header>
 
-          <section className="mt-4">
+          <section className="mt-4 decorated">
+            {/* small decorative svg inside section */}
+            <svg className="decoration-svg left" viewBox="0 0 200 80" aria-hidden="true" focusable="false">
+              <path d="M12,40 C30,8 90,0 128,8 C166,16 178,44 144,64 C110,84 40,76 12,40 Z" fill="var(--brand-burgundy)" />
+            </svg>
             <h2 className="h5">Meet the Senior Consultant</h2>
             <p>
               Tinashe Moya is the Senior Consultant at Maffy Online — an experienced HR practitioner and public speaker
@@ -68,12 +89,18 @@ const About = () => {
             </p>
           </section>
 
-          <section className="mt-4">
+          <section className="mt-4 decorated small">
+            <svg className="decoration-svg left s-left" viewBox="0 0 120 56" aria-hidden="true" focusable="false">
+              <path d="M6,26 C22,6 74,2 98,10 C122,18 118,42 92,48 C66,54 20,48 6,26 Z" fill="var(--brand-burgundy)" />
+            </svg>
             <h2 className="h5">Vision</h2>
             <p>{vision}</p>
           </section>
 
-          <section className="mt-4">
+          <section className="mt-4 decorated small">
+            <svg className="decoration-svg right s-right" viewBox="0 0 72 72" aria-hidden="true" focusable="false">
+              <circle cx="36" cy="36" r="34" fill="var(--brand-cream)"/>
+            </svg>
             <h2 className="h5">Mission Statement</h2>
             <p className="fst-italic">“{mission}”</p>
           </section>

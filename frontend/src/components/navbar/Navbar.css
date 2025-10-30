@@ -1,8 +1,9 @@
 .navbar { transition: all 0.3s ease-in-out; z-index: 1000; }
 
+
 .brand-text {
   font-size: 1.4rem;
-  color: var(--brand-black);
+  color: var(--brand-primary);
   letter-spacing: 0.5px;
   transition: color 0.3s ease;
 }
@@ -17,7 +18,7 @@
 
 /* Nav links */
 .navbar-nav .nav-link {
-  color: #333;
+  color: var(--brand-text);
   font-weight: 500;
   margin-right: 1rem;
   position: relative;

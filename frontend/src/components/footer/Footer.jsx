@@ -40,9 +40,9 @@ const Footer = () => {
             <p className="mb-1"><FaEnvelope className="me-2" /><a href="mailto:hello@maffyonline.co.zw">hello@maffyonline.co.zw</a></p>
             <p><FaPhone className="me-2" /><a href="tel:+263773527905">+263 773 527 905</a></p>
             <div className="footer-social mt-3">
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="me-3"><FaFacebook /></a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="me-3"><FaLinkedin /></a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer"><FaInstagram /></a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="me-3"><FaFacebook /></a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="me-3"><FaLinkedin /></a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@ const Footer = () => {
 
         <div className="text-center small text-muted">
           <p className="mb-1">© {year} Maffy Online · Zimbabwe HR & Talent Acquisition Agency</p>
-          <p>Designed with ❤️ by <a id="tishbite-link" href="#" target="_blank" rel="noreferrer">Tishbite Digital</a> · Empowering professionals globally.</p>
+          <p>Designed with ❤️ by <a id="tishbite-link" href="https://wedhoportfolio.netlify.app/" target="_blank" rel="noopener noreferrer">Wedho</a> · Empowering professionals globally.</p>
         </div>
       </div>
     </footer>
