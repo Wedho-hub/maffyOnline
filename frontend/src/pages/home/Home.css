@@ -35,6 +35,9 @@
   z-index: 1;
 }
 
+/* ensure the container and interactive elements sit above the hero overlay */
+.hero .container { position: relative; z-index: 1; }
+
 /* Hero animation */
 .hero .display-5 { transform: translateY(8px); opacity: 0; animation: heroIn 600ms ease forwards; }
 @keyframes heroIn { from { transform: translateY(18px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
@@ -61,14 +64,20 @@
   padding: 0.75rem 2rem;
   color: var(--brand-black);
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease, background-color 220ms ease;
+  position: relative; /* keep above overlays */
+  z-index: 2;
 }
 
 .btn-main:hover {
   background-color: color-mix(in srgb, var(--brand-gold) 78%, black 12%);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 26px rgba(11,37,69,0.12);
   color: var(--brand-black);
+  transform: translateY(-3px) scale(1.01);
 }
+
+.btn-main:active { transform: translateY(0) scale(0.995); }
+.btn-main:focus-visible { outline: 3px solid color-mix(in srgb, var(--brand-gold) 36%, transparent 64%); outline-offset: 4px; }
 
 .btn-outline-main {
   border: 2px solid var(--brand-gold);
