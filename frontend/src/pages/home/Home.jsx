@@ -17,7 +17,7 @@ const Home = () => {
       <section className="hero text-center d-flex align-items-center">
         <div className="container">
           <h1 className="display-4 fw-bold hero-title">Maffy Online</h1>
-            <p className="hero-tagline">HR & Talent Acquisition — recruitment, training and HR advisory</p>
+            <p className="hero-tagline">HR & Talent Acquisition — recruitment, training and more</p>
             <p className="lead hero-subtitle decorated small">
             <svg className="decoration-svg left s-left" viewBox="0 0 120 56" aria-hidden="true" focusable="false">
               <path d="M6,26 C22,6 74,2 98,10 C122,18 118,42 92,48 C66,54 20,48 6,26 Z" fill="var(--brand-burgundy)" />

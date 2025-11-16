@@ -71,9 +71,13 @@ const Blog = () => {
                 </div>
               </div>
 
-              <div style={{marginTop:16, lineHeight:1.7}}>
-                {modalPost.content || modalPost.excerpt}
-              </div>
+              {/* Featured Image */}
+              {modalPost.image && (
+                <img src={modalPost.image} alt={modalPost.title} className="blog-modal-featured-image" />
+              )}
+
+              {/* Content with HTML support */}
+              <div style={{marginTop:16, lineHeight:1.7}} dangerouslySetInnerHTML={{ __html: modalPost.content || modalPost.excerpt }} />
             </div>
           </div>
         </div>

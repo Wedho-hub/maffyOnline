@@ -1,9 +1,15 @@
 /* ------------------------------------------
-   Blog Page – Modern & Professional Styling
+   Blog Page – Super Professional & Alive Styling
 ------------------------------------------- */
 .blog-page {
   padding-top: 3rem;
   padding-bottom: 4rem;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Hero */
@@ -24,6 +30,12 @@
   color: var(--brand-gold);
   position: relative;
   z-index: 2;
+  animation: slideInLeft 1s ease-out;
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 .blog-page .hero .lead {
@@ -34,7 +46,14 @@
   margin: 0 auto;
   position: relative;
   z-index: 2;
+  animation: slideInRight 1s ease-out 0.2s both;
 }
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
 /* Overlay for better text contrast */
 .blog-page .hero::before {
   content: '';
@@ -61,6 +80,12 @@
   transform: rotate(-5deg);
   margin: -45px auto 15px auto;
   filter: blur(4px);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 }
 
 /* Blog Grid */
@@ -73,14 +98,25 @@
   background: #ffffff;
   border-radius: 16px;
   overflow: hidden;
-  transition: transform .22s ease, box-shadow .22s ease;
+  transition: transform .3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow .3s ease, border-color .3s ease;
   box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  border: none;
+  border: 2px solid transparent;
+  animation: cardFadeIn 0.6s ease-out both;
+}
+
+.blog-list .card:nth-child(1) { animation-delay: 0.1s; }
+.blog-list .card:nth-child(2) { animation-delay: 0.2s; }
+.blog-list .card:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes cardFadeIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .blog-list .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 22px 60px rgba(0,0,0,0.12);
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+  border-color: var(--brand-gold);
 }
 
 .blog-meta {
@@ -105,10 +141,16 @@
 /* Read more bubble */
 .article-card .btn {
   border-radius: 999px;
+  transition: all 0.3s ease;
+}
+
+.article-card .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
 
 /* ------------------------------------------
-   Modal — Clean, crisp, premium
+   Modal — Clean, crisp, premium & alive
 ------------------------------------------- */
 .blog-modal {
   position: fixed;
@@ -124,6 +166,12 @@
   inset:0;
   background: rgba(0,0,0,0.55);
   backdrop-filter: blur(4px);
+  animation: backdropFadeIn 0.3s ease;
+}
+
+@keyframes backdropFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .blog-modal-panel {
@@ -135,18 +183,92 @@
   border-radius: 16px;
   box-shadow: 0 32px 90px rgba(0,0,0,0.28);
   overflow:hidden;
-  animation: fadeInUp .25s ease;
+  animation: modalSlideIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(18px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes modalSlideIn {
+  from { opacity: 0; transform: translateY(50px) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .blog-modal-body {
   max-height: 78vh;
   overflow:auto;
   padding:2rem;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Featured Image in Modal */
+.blog-modal-featured-image {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  animation: imageFadeIn 0.6s ease-out 0.2s both;
+}
+
+@keyframes imageFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Inline Images and Figures */
+.blog-modal-body img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.blog-modal-body img:hover {
+  transform: scale(1.02);
+}
+
+.blog-modal-body figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+.blog-modal-body figcaption {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Paragraph Styling */
+.blog-modal-body p {
+  margin-bottom: 1.5rem;
+  text-align: justify;
+  animation: textFadeIn 0.8s ease-out both;
+}
+
+.blog-modal-body p:nth-child(1) { animation-delay: 0.1s; }
+.blog-modal-body p:nth-child(2) { animation-delay: 0.2s; }
+.blog-modal-body p:nth-child(3) { animation-delay: 0.3s; }
+.blog-modal-body p:nth-child(4) { animation-delay: 0.4s; }
+.blog-modal-body p:nth-child(5) { animation-delay: 0.5s; }
+.blog-modal-body p:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes textFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Minigraphs/Graphs Styling (assuming SVG or canvas) */
+.blog-modal-body svg,
+.blog-modal-body canvas {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .blog-modal-header {
@@ -163,6 +285,12 @@
   font-weight: 600;
   color:var(--brand-charcoal);
   margin:0 0 .25rem 0;
+  animation: titleSlideIn 0.5s ease-out;
+}
+
+@keyframes titleSlideIn {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 .blog-modal-meta {
@@ -186,7 +314,6 @@
   border-radius: 10px;
   font-size: .9rem;
   cursor: pointer;
-  /* transition requires property, duration, timing-function and delay — specify explicitly */
   transition: background-color 150ms ease 0s, transform 150ms ease 0s, box-shadow 150ms ease 0s;
 }
 
@@ -208,7 +335,8 @@
 /* Mobile Adaptations */
 @media (max-width: 767px) {
   .blog-modal-image { display:none }
-  .blog-modal-body { padding:1.4rem; }
+  .blog-modal-body { padding:1.4rem; font-size: 1rem; }
   .blog-modal-title { font-size:1.35rem; }
   .blog-modal-panel { width:96%; }
+  .blog-modal-featured-image { max-height: 250px; }
 }

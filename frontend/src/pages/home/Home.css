@@ -38,7 +38,7 @@
 .hero-tagline {
   margin-top: 8px;
   margin-bottom: 12px;
-  color: rgba(255,255,255,0.95);
+  color: var(--brand-gold);
   font-size: 1rem;
   font-weight: 500;
   opacity: 0.95;
