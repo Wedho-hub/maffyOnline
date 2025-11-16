@@ -40,9 +40,9 @@ const Footer = () => {
             <p className="mb-1"><FaEnvelope className="me-2" /><a href="mailto:hello@maffyonline.co.zw">hello@maffyonline.co.zw</a></p>
             <p><FaPhone className="me-2" /><a href="tel:+263773527905">+263 773 527 905</a></p>
             <div className="footer-social mt-3">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="me-3"><FaFacebook /></a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="me-3"><FaLinkedin /></a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
+              <a href="https://www.facebook.com/share/18j3yEX3C3/" target="_blank" rel="noopener noreferrer" className="me-3"><FaFacebook /></a>
+              <a href="https://www.linkedin.com/in/tinashe-moya-37729344?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="me-3"><FaLinkedin /></a>
+              <a href="https://www.instagram.com/maffyonline_zw?igsh=b2xramgxZHV2YXc2" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
             </div>
           </div>
         </div>

@@ -28,7 +28,7 @@ const TestimonialsAdmin = () => {
   const remove = async id => { if (!confirm('Delete?')) return; await API.delete(`/api/testimonials/${id}`); load(); };
 
   return (
-    <div>
+    <div className="admin-area">
       <h2>Testimonials</h2>
       <div className="mb-3">
         <button className="btn btn-outline-primary me-2" onClick={startCreate}>New</button>

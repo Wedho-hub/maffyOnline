@@ -29,8 +29,8 @@ const PostsAdmin = () => {
   const remove = async id => { if (!confirm('Delete?')) return; await API.delete(`/api/posts/${id}`); load(); };
 
   return (
-    <div>
-      <h2>Blog Posts</h2>
+    <div className="admin-area">
+      <h2>Blogs</h2>
       <div className="mb-3">
         <button className="btn btn-outline-primary me-2" onClick={startCreate}>New Post</button>
         <button className="btn btn-secondary" onClick={load}>Refresh</button>
@@ -57,7 +57,10 @@ const PostsAdmin = () => {
         <div className="col-md-6">
           <form onSubmit={submit} className="card card-body">
             <div className="mb-2"><input className="form-control" name="title" placeholder="Title" value={form.title} onChange={handle} required/></div>
-            <div className="mb-2"><input className="form-control" name="slug" placeholder="Slug (use hyphens)" value={form.slug} onChange={handle} required/></div>
+            <div className="mb-2">
+              <input className="form-control" name="slug" placeholder="Slug (use hyphens)" value={form.slug} onChange={handle} required/>
+              <small className="form-text text-muted">Slug is a URL-friendly version of the title, used for SEO and readable URLs (e.g., 'my-blog-post').</small>
+            </div>
             <div className="mb-2"><textarea className="form-control" name="content" placeholder="Content (HTML allowed)" value={form.content} onChange={handle} rows={8} required/></div>
             <div className="mb-2">
               {form.image && <div className="mb-2"><img src={form.image} alt="post" style={{maxWidth:200}}/></div>}

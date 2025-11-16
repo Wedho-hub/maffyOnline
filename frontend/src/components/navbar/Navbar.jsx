@@ -19,7 +19,7 @@ const Navbar = () => {
     <nav className="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
       <div className="container">
         <Link className="navbar-brand fw-bold brand-text d-flex align-items-center" to="/" onClick={close}>
-          <img src={logo} alt="Maffy Online" style={{height:36, width:'auto', objectFit:'contain', marginRight:10, borderRadius:6}} />
+          <img src={logo} alt="Maffy Online" style={{height:100, width:'auto', objectFit:'contain', marginRight:10, borderRadius:6}} />
           <span><span className="brand-highlight">Maffy</span> Online</span>
         </Link>
 

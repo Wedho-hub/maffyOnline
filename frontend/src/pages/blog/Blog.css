@@ -1,57 +1,214 @@
-
-/* Blog: professional layout and spacing */
+/* ------------------------------------------
+   Blog Page – Modern & Professional Styling
+------------------------------------------- */
 .blog-page {
-	padding-top: 2rem;
-	padding-bottom: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 4rem;
 }
 
+/* Hero */
 .blog-page .hero {
-	text-align: center;
-	max-width: 900px;
-	margin: 0 auto 2rem auto;
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 3rem auto;
+  padding: 1rem;
+  position: relative;
+  z-index: 1;
 }
 
-.blog-page .hero h1 { font-size: 2.25rem; letter-spacing: -0.5px; margin-bottom: .5rem }
-.blog-page .hero .lead { color: #555; max-width: 780px; margin: 0 auto }
+.blog-page .hero h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: .75rem;
+  color: var(--brand-gold);
+  position: relative;
+  z-index: 2;
+}
 
-.blog-list .card { transition: transform .18s ease, box-shadow .18s ease; border-radius: 12px; overflow: hidden }
-.blog-list .card:hover { transform: translateY(-6px); box-shadow: 0 18px 50px rgba(0,0,0,0.09) }
-.blog-meta { color: #777; font-size: .9rem }
-.blog-excerpt { color: #333 }
-.blog-grid { gap: 1.5rem }
+.blog-page .hero .lead {
+  color: #fff;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+/* Overlay for better text contrast */
+.blog-page .hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(11,37,69,0.38) 60%, rgba(123,45,59,0.18) 100%);
+  border-radius: 32px;
+  z-index: 1;
+  pointer-events: none;
+}
 
-.blog-empty { text-align:center; color:#666; padding:3rem 0 }
-
-/* Read more style used inside Article */
-.article-card .btn { border-radius: 999px }
-
-/* Modal (expanded post) */
-.blog-modal { position: fixed; inset: 0; z-index: 1200; display:flex; align-items:center; justify-content:center }
-.blog-modal-backdrop { position:absolute; inset:0; background: rgba(0,0,0,0.5) }
-.blog-modal-panel { position: relative; z-index: 1210; max-width:980px; width:94%; background:#fff; border-radius:12px; box-shadow: 0 30px 80px rgba(0,0,0,0.22); overflow:hidden }
-.blog-modal-body { max-height: 78vh; overflow:auto; padding:1.6rem }
-.blog-modal-header { display:flex; justify-content:space-between; align-items:center; gap:1rem }
-.blog-modal-title { font-size:1.4rem; color:var(--brand-charcoal); margin:0 }
-.blog-modal-meta { color:#777; font-size:.95rem }
-.blog-modal-image { width:220px; height:140px; object-fit:cover; border-radius:8px; margin-left:1rem }
-
-.blog-modal-close { background:transparent; border:1px solid rgba(0,0,0,0.08); padding:.45rem .6rem; border-radius:8px; cursor:pointer }
-.blog-modal-close:hover { background:#f8f8f8 }
-
-/* subtle decorative accent behind blog hero heading */
+/* Decorative accent */
 .blog-page .hero::after {
-	content: '';
-	display: block;
-	width: 200px;
-	height: 140px;
-	background: linear-gradient(135deg, rgba(123,45,59,0.12), rgba(212,175,55,0.06));
-	border-radius: 28px;
-	transform: rotate(-6deg);
-	margin: -40px auto 12px auto;
+  content: '';
+  display: block;
+  width: 220px;
+  height: 150px;
+  background: linear-gradient(
+    135deg,
+    rgba(123, 45, 59, 0.18),
+    rgba(212, 175, 55, 0.10)
+  );
+  border-radius: 32px;
+  transform: rotate(-5deg);
+  margin: -45px auto 15px auto;
+  filter: blur(4px);
 }
 
-@media (max-width: 767px) {
-	.blog-modal-image { display:none }
-	.blog-modal-panel { width: 96%; }
+/* Blog Grid */
+.blog-grid {
+  gap: 2rem;
 }
-/* blog styles */
+
+/* Cards */
+.blog-list .card {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform .22s ease, box-shadow .22s ease;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  border: none;
+}
+
+.blog-list .card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.12);
+}
+
+.blog-meta {
+  color: #777;
+  font-size: .9rem;
+}
+
+.blog-excerpt {
+  color: #444;
+  font-size: .96rem;
+  line-height: 1.5;
+}
+
+/* Empty state */
+.blog-empty {
+  text-align:center;
+  color:#666;
+  padding:3rem 0;
+  font-size:1.2rem;
+}
+
+/* Read more bubble */
+.article-card .btn {
+  border-radius: 999px;
+}
+
+/* ------------------------------------------
+   Modal — Clean, crisp, premium
+------------------------------------------- */
+.blog-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.blog-modal-backdrop {
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(4px);
+}
+
+.blog-modal-panel {
+  position: relative;
+  z-index: 1210;
+  max-width: 900px;
+  width: 94%;
+  background:#ffffff;
+  border-radius: 16px;
+  box-shadow: 0 32px 90px rgba(0,0,0,0.28);
+  overflow:hidden;
+  animation: fadeInUp .25s ease;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.blog-modal-body {
+  max-height: 78vh;
+  overflow:auto;
+  padding:2rem;
+}
+
+.blog-modal-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:1rem;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 1rem;
+}
+
+.blog-modal-title {
+  font-size:1.6rem;
+  font-weight: 600;
+  color:var(--brand-charcoal);
+  margin:0 0 .25rem 0;
+}
+
+.blog-modal-meta {
+  color:#888;
+  font-size:.95rem;
+}
+
+.blog-modal-image {
+  width:240px;
+  height:150px;
+  object-fit:cover;
+  border-radius:10px;
+  margin-left:1rem;
+}
+
+/* Close button */
+.blog-modal-close {
+  background: #fafafa;
+  border: 1px solid rgba(0,0,0,0.08);
+  padding: .5rem .8rem;
+  border-radius: 10px;
+  font-size: .9rem;
+  cursor: pointer;
+  /* transition requires property, duration, timing-function and delay — specify explicitly */
+  transition: background-color 150ms ease 0s, transform 150ms ease 0s, box-shadow 150ms ease 0s;
+}
+
+.blog-modal-close:hover {
+  background: #f0f0f0;
+  transform: translateY(-2px) scale(1.002);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+
+.blog-modal-close:active {
+  transform: translateY(0) scale(0.998);
+}
+
+.blog-modal-close:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--brand-gold) 30%, transparent 70%);
+  outline-offset: 3px;
+}
+
+/* Mobile Adaptations */
+@media (max-width: 767px) {
+  .blog-modal-image { display:none }
+  .blog-modal-body { padding:1.4rem; }
+  .blog-modal-title { font-size:1.35rem; }
+  .blog-modal-panel { width:96%; }
+}

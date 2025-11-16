@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Contact.css';
+import { FaFacebook, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const Contact = () => {
   const [form, setForm] = useState({ name:'', email:'', message:'' });
@@ -54,9 +55,17 @@ const Contact = () => {
             <p className="mb-1">Phone: <a href="tel:+263773527905">+263 773 527 905</a></p>
             <p>Email: <a href="mailto:hello@maffyonline.co.zw">hello@maffyonline.co.zw</a></p>
           </div>
-          <div className="card p-3">
+          <div className="card p-3 mb-3">
             <h6 className="mb-2">Opening Hours</h6>
             <p className="mb-0">Mon – Fri: 9:00am – 5:00pm</p>
+          </div>
+          <div className="card p-3">
+            <h6 className="mb-2">Follow Us</h6>
+            <div className="d-flex">
+              <a href="https://www.facebook.com/share/18j3yEX3C3/" target="_blank" rel="noopener noreferrer" className="me-3"><FaFacebook size={24} /></a>
+              <a href="https://www.linkedin.com/in/tinashe-moya-37729344?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer" className="me-3"><FaLinkedin size={24} /></a>
+              <a href="https://www.instagram.com/maffyonline_zw?igsh=b2xramgxZHV2YXc2" target="_blank" rel="noopener noreferrer"><FaInstagram size={24} /></a>
+            </div>
           </div>
         </aside>
       </div>

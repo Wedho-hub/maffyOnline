@@ -160,4 +160,20 @@
     top: 0;
     transform: rotate(-45deg);
   }
+
+  /* Prevent middle bar flash on press (active/focus) by forcing transparency */
+  .navbar-toggler:active .navbar-toggler-icon,
+  .navbar-toggler:focus .navbar-toggler-icon,
+  .navbar-toggler:focus-visible .navbar-toggler-icon {
+    background-color: transparent !important;
+  }
+
+  /* Ensure pseudo bars animate smoothly and keep color consistent */
+  .navbar-toggler-icon::before,
+  .navbar-toggler-icon::after {
+    transition: transform 220ms ease, top 220ms ease, opacity 180ms ease, background-color 180ms ease;
+  }
+
+  /* Remove default focus outline for the toggler and add an accessible focus ring */
+  .navbar-toggler:focus-visible { outline: none; box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-primary) 14%, transparent 86%); border-radius: 8px; }
 }

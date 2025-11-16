@@ -28,7 +28,7 @@ const SiteAdmin = () => {
   };
 
   return (
-    <div>
+    <div className="admin-area">
       <h2>Site Content</h2>
       <div className="row">
         <div className="col-md-6">

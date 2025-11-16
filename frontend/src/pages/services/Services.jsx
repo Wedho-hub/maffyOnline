@@ -1,6 +1,18 @@
 import React, { useEffect, useState, useRef } from 'react';
 import API from '../../services/api';
 import './Services.css';
+import { FaUserTie, FaUsers, FaClipboardList, FaHandshake, FaChartLine, FaChalkboardTeacher, FaFileContract, FaCog } from 'react-icons/fa';
+// Map service keys to icons
+const serviceIcons = {
+  'global-recruitment': <FaUserTie size={48} color="var(--brand-gold)" />,
+  'onboarding': <FaUsers size={48} color="var(--brand-gold)" />,
+  'hr-policies': <FaClipboardList size={48} color="var(--brand-gold)" />,
+  'industrial-relations': <FaHandshake size={48} color="var(--brand-gold)" />,
+  'workforce-planning': <FaChartLine size={48} color="var(--brand-gold)" />,
+  'training-development': <FaChalkboardTeacher size={48} color="var(--brand-gold)" />,
+  'contracts': <FaFileContract size={48} color="var(--brand-gold)" />,
+  'administrative-management': <FaCog size={48} color="var(--brand-gold)" />,
+};
 
 const canonical = [
   { key: 'global-recruitment', title: 'Global recruitment', summary: 'Sourcing international talent to fill critical roles quickly and reliably.', details: 'We manage end-to-end international recruitment including sourcing, vetting, interviews, compliance checks, and relocation assistance where required.' },
@@ -50,31 +62,34 @@ const Services = () => {
 
   return (
     <div>
-      <h1 className="mb-4 decorated small">
-        <svg className="decoration-svg left s-left" viewBox="0 0 120 56" aria-hidden="true" focusable="false">
-          <path d="M6,26 C22,6 74,2 98,10 C122,18 118,42 92,48 C66,54 20,48 6,26 Z" fill="var(--brand-burgundy)" />
-        </svg>
-        Our Services
-      </h1>
-      <div className="row services-list">
-        {merged.map(s => (
-          <div className="col-md-6 mb-3" key={s.key}>
-            <div className="service-card card p-3 h-100">
-              <div>
-                <div className="d-flex justify-content-between align-items-start">
-                  <div>
-                    <h5 className="service-title">{s.title}</h5>
-                    <div className="service-summary">{s.summary}</div>
-                  </div>
+      {/* Hero Section */}
+      <section className="services-hero">
+        <div className="container">
+          <h1 className="services-hero-title">Our Services</h1>
+          <p className="services-hero-subtitle">Comprehensive HR and talent solutions tailored to your business needs</p>
+        </div>
+      </section>
+
+      {/* Services Grid */}
+      <section className="services-section container py-5">
+        <div className="row services-list g-4">
+          {merged.map((s, idx) => (
+            <div className="col-lg-4 col-md-6 mb-4" key={s.key}>
+              <div className="service-card bounce-top" style={{ animationDelay: `${idx * 80}ms` }}>
+                <div className="service-icon">
+                  {serviceIcons[s.key] || <FaCog size={48} color="var(--brand-gold)" />}
                 </div>
-                <div className="service-actions">
-                  <button className="btn-read" onClick={() => { setModalService(s); setModalOpen(true); }}>{'Read more'}</button>
-                </div>
-              </div>
+                <h5 className="service-title">{s.title}</h5>
+                <p className="service-summary">{s.summary}</p>
+                <button className="btn-read" onClick={() => { setModalService(s); setModalOpen(true); }}>
+                  Learn More →
+                </button>
             </div>
-          </div>
-        ))}
-      </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Modal */}
       {modalOpen && modalService && (
         <div className="services-modal" role="dialog" aria-modal="true">

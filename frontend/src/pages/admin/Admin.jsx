@@ -9,7 +9,7 @@ import SiteAdmin from './SiteAdmin.jsx';
 import './admin.css';
 
 const Admin = () => (
-  <div>
+  <div className="admin-area">
     <h1>Admin</h1>
     <nav className="mb-3">
       <Link className="me-3" to="/admin/login">Login</Link>
