@@ -1,8 +1,1 @@
-Backend for Maffy Online.
-
-Requires:
-- Node 18+
-- MongoDB connection string in .env as MONGO_URI
-- JWT_SECRET in .env
-
-Scripts: npm run dev
+ - Copy .env.example to .env and set your MongoDB connection string as MONGO_URI in .env
