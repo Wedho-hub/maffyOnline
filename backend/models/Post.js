@@ -20,6 +20,9 @@ const postSchema = new mongoose.Schema({
   title: { type: String, required: true }, // Blog post title
   slug: { type: String, required: true, unique: true }, // SEO-friendly URL slug
   content: { type: String, required: true }, // Full post content (HTML allowed)
+    mainImage: { type: String }, // main/top image
+    subImage1: { type: String }, // sub image 1 (end)
+    subImage2: { type: String }, // sub image 2 (end)
   author: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }, // Reference to User model
   published: { type: Boolean, default: false } // Publication status
 }, { timestamps: true }); // Automatically adds createdAt and updatedAt fields

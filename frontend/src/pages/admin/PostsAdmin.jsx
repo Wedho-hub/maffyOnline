@@ -7,9 +7,9 @@ const empty = {
   title: '',
   slug: '',
   content: '',
-  image: '',
-  paragraphs: ['', '', '', '', '', ''],
-  inlineImages: ['', '', '', '', '', '']
+  mainImage: '',
+  subImage1: '',
+  subImage2: ''
 };
 
 const PostsAdmin = () => {
@@ -22,41 +22,20 @@ const PostsAdmin = () => {
 
   const handle = e => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const handleParagraph = (index, value) => {
-    const newParagraphs = [...form.paragraphs];
-    newParagraphs[index] = value;
-    setForm({ ...form, paragraphs: newParagraphs });
-  };
-
-  const handleInlineImage = (index, url) => {
-    const newImages = [...form.inlineImages];
-    newImages[index] = url;
-    setForm({ ...form, inlineImages: newImages });
-  };
-
   const startCreate = () => { setEditing(null); setForm(empty); };
 
   const submit = async e => {
     e.preventDefault();
     try {
-      // Concatenate paragraphs and inline images into HTML content
-      let htmlContent = '';
-      for (let i = 0; i < 6; i++) {
-        if (form.paragraphs[i]) {
-          htmlContent += `<p>${form.paragraphs[i]}</p>`;
-        }
-        if (form.inlineImages[i]) {
-          htmlContent += `<figure><img src="${form.inlineImages[i]}" alt="Inline image ${i+1}" /><figcaption>Figure ${i+1}</figcaption></figure>`;
-        }
-      }
-
+      // Use content as entered (single textarea)
       const postData = {
         title: form.title,
         slug: form.slug,
-        content: htmlContent,
-        image: form.image
+        content: form.content,
+        mainImage: form.mainImage,
+        subImage1: form.subImage1,
+        subImage2: form.subImage2
       };
-
       if (editing) await API.put(`/api/posts/${editing}`, postData);
       else await API.post('/api/posts', postData);
       await load(); setForm(empty); setEditing(null);
@@ -84,18 +63,13 @@ const PostsAdmin = () => {
                 </div>
                 <div className="btn-group">
                   <button className="btn btn-sm btn-outline-secondary" onClick={()=>{
-                    // Parse content back to paragraphs and images for editing
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(p.content, 'text/html');
-                    const paragraphs = Array.from(doc.querySelectorAll('p')).map(p => p.textContent);
-                    const images = Array.from(doc.querySelectorAll('img')).map(img => img.src);
                     setForm({
                       title: p.title,
                       slug: p.slug,
                       content: p.content,
-                      image: p.image || '',
-                      paragraphs: [...paragraphs, '', '', '', '', '', ''].slice(0, 6),
-                      inlineImages: [...images, '', '', '', '', '', ''].slice(0, 6)
+                      mainImage: p.mainImage || '',
+                      subImage1: p.subImage1 || '',
+                      subImage2: p.subImage2 || ''
                     });
                     setEditing(p._id);
                   }}>Edit</button>
@@ -116,29 +90,38 @@ const PostsAdmin = () => {
               <small className="form-text text-muted">Slug is a URL-friendly version of the title, used for SEO and readable URLs (e.g., 'my-blog-post').</small>
             </div>
 
-            {/* Featured Image */}
+            {/* Main Image */}
             <div className="mb-3">
-              <label className="form-label">Featured Image (Big)</label>
-              {form.image && <div className="mb-2"><img src={form.image} alt="Featured" style={{maxWidth:200, borderRadius:8}}/></div>}
-              <ImageUploader onUploaded={url => setForm({ ...form, image: url })} />
+              <label className="form-label">Main Image (Top/Featured)</label>
+              {form.mainImage && <div className="mb-2"><img src={form.mainImage} alt="Main" style={{maxWidth:200, borderRadius:8}}/></div>}
+              <ImageUploader onUploaded={url => setForm({ ...form, mainImage: url })} />
             </div>
 
-            {/* 6 Paragraphs with Inline Images */}
-            {form.paragraphs.map((para, index) => (
-              <div key={index} className="mb-3 border p-3 rounded">
-                <label className="form-label">Paragraph {index + 1}</label>
-                <textarea
-                  className="form-control mb-2"
-                  placeholder={`Enter paragraph ${index + 1} content`}
-                  value={para}
-                  onChange={(e) => handleParagraph(index, e.target.value)}
-                  rows={4}
-                />
-                <label className="form-label">Inline Image (Optional)</label>
-                {form.inlineImages[index] && <div className="mb-2"><img src={form.inlineImages[index]} alt={`Inline ${index+1}`} style={{maxWidth:150, borderRadius:4}}/></div>}
-                <ImageUploader onUploaded={url => handleInlineImage(index, url)} />
-              </div>
-            ))}
+            {/* Content */}
+            <div className="mb-3">
+              <label className="form-label">Blog Content (HTML allowed)</label>
+              <textarea
+                className="form-control"
+                name="content"
+                placeholder="Enter blog content (HTML allowed)"
+                value={form.content}
+                onChange={handle}
+                rows={10}
+                required
+              />
+            </div>
+
+            {/* Sub Images */}
+            <div className="mb-3">
+              <label className="form-label">Sub Image 1 (End of Blog)</label>
+              {form.subImage1 && <div className="mb-2"><img src={form.subImage1} alt="Sub 1" style={{maxWidth:150, borderRadius:6}}/></div>}
+              <ImageUploader onUploaded={url => setForm({ ...form, subImage1: url })} />
+            </div>
+            <div className="mb-3">
+              <label className="form-label">Sub Image 2 (End of Blog)</label>
+              {form.subImage2 && <div className="mb-2"><img src={form.subImage2} alt="Sub 2" style={{maxWidth:150, borderRadius:6}}/></div>}
+              <ImageUploader onUploaded={url => setForm({ ...form, subImage2: url })} />
+            </div>
 
             <div className="d-flex gap-2">
               <button className="btn btn-primary" type="submit">Save</button>
@@ -152,7 +135,9 @@ const PostsAdmin = () => {
       <h3>Preview</h3>
       <div className="row">
         {list.map(p => (
-          <div className="col-md-6" key={p._id}><Article title={p.title} excerpt={p.content?.slice(0,150)} image={p.image} /></div>
+          <div className="col-md-6" key={p._id}>
+            <Article title={p.title} excerpt={p.content?.slice(0,150)} image={p.mainImage} />
+          </div>
         ))}
       </div>
     </div>

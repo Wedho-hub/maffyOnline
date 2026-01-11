@@ -64,20 +64,26 @@ const Blog = () => {
                     <h3 className="blog-modal-title">{modalPost.title}</h3>
                     <div className="blog-modal-meta">{modalPost.author} · {modalPost.date}</div>
                   </div>
-                  {modalPost.image && <img src={modalPost.image} alt="" className="blog-modal-image" />}
+                  {modalPost.mainImage && <img src={modalPost.mainImage} alt="Main" className="blog-modal-image" />}
                 </div>
                 <div>
                   <button ref={closeBtnRef} className="blog-modal-close" onClick={() => setModalOpen(false)}>Close · Esc</button>
                 </div>
               </div>
 
-              {/* Featured Image */}
-              {modalPost.image && (
-                <img src={modalPost.image} alt={modalPost.title} className="blog-modal-featured-image" />
+              {/* Main Image at top */}
+              {modalPost.mainImage && (
+                <img src={modalPost.mainImage} alt={modalPost.title} className="blog-modal-featured-image" />
               )}
 
               {/* Content with HTML support */}
               <div style={{marginTop:16, lineHeight:1.7}} dangerouslySetInnerHTML={{ __html: modalPost.content || modalPost.excerpt }} />
+
+              {/* Sub Images at end */}
+              <div style={{marginTop:32, display:'flex', gap:24, justifyContent:'center'}}>
+                {modalPost.subImage1 && <img src={modalPost.subImage1} alt="Sub 1" style={{maxWidth:180, borderRadius:8}} />}
+                {modalPost.subImage2 && <img src={modalPost.subImage2} alt="Sub 2" style={{maxWidth:180, borderRadius:8}} />}
+              </div>
             </div>
           </div>
         </div>

@@ -27,3 +27,5 @@
 - [x] Update Blog.css with animations, vibrant colors, and styles for inline images/figures
 - [x] Update Blog.jsx to render HTML content with featured image
 - [x] Update PostsAdmin.jsx to include 6 paragraphs with inline images, concatenate to HTML
+- [x] Post.js model: Added image field to schema
+- [x] API Testing: Verified POST and GET operations work correctly with database persistence
