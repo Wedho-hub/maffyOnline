@@ -51,7 +51,7 @@ const Footer = () => {
 
         <div className="text-center small text-muted">
           <p className="mb-1">© {year} Maffy Online · Zimbabwe HR & Talent Acquisition Agency</p>
-          <p>Designed with ❤️ by <a id="tishbite-link" href="https://wedhoportfolio.netlify.app/" target="_blank" rel="noopener noreferrer">Wedho</a> · Empowering professionals globally.</p>
+          <p>Designed with ❤️ by <a id="tishbite-link" href="https://tishbitedigital.co.za" target="_blank" rel="noopener noreferrer">Tishbite Digital</a> · Empowering professionals globally.</p>
         </div>
       </div>
     </footer>
