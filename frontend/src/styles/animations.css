@@ -1,0 +1,162 @@
+/* ============================================================
+   GLOBAL ANIMATIONS — imported once in main.jsx
+   ============================================================ */
+
+/* ---- SCROLL REVEAL ---- */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
+}
+
+/* slide from left */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* slide from right */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* scale in */
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.93);
+  transition: opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* stagger delay helpers */
+.reveal-d1 { transition-delay: 0.08s; }
+.reveal-d2 { transition-delay: 0.16s; }
+.reveal-d3 { transition-delay: 0.24s; }
+.reveal-d4 { transition-delay: 0.32s; }
+.reveal-d5 { transition-delay: 0.40s; }
+.reveal-d6 { transition-delay: 0.48s; }
+
+
+/* ---- KEYFRAMES ---- */
+
+/* gentle float (already in fonts.css, kept for completeness) */
+@keyframes floatY {
+  0%   { transform: translateY(0);    }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0);    }
+}
+
+/* slow rotation for decorative art */
+@keyframes slowSpin {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+/* gold pulse glow on CTA buttons */
+@keyframes goldPulse {
+  0%   { box-shadow: 0 0 0 0    rgba(212,175,55,0.55); }
+  60%  { box-shadow: 0 0 0 14px rgba(212,175,55,0);    }
+  100% { box-shadow: 0 0 0 0    rgba(212,175,55,0);    }
+}
+
+/* shimmer sweep over text or elements */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+
+/* hero gradient drift */
+@keyframes gradientDrift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* count-up flash */
+@keyframes countFlash {
+  0%   { color: var(--brand-gold); transform: scale(1.04); }
+  100% { color: var(--brand-gold); transform: scale(1);    }
+}
+
+/* slide up from bottom (card entrance) */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* draw-in for SVG strokes */
+@keyframes drawStroke {
+  from { stroke-dashoffset: 1000; }
+  to   { stroke-dashoffset: 0;    }
+}
+
+/* icon bounce on hover */
+@keyframes iconBounce {
+  0%,100% { transform: translateY(0);  }
+  40%      { transform: translateY(-6px); }
+  70%      { transform: translateY(-3px); }
+}
+
+
+/* ---- UTILITY CLASSES ---- */
+
+/* apply gold pulse to any element */
+.pulse-gold {
+  animation: goldPulse 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* float perpetually */
+.float-icon {
+  animation: floatY 3.8s ease-in-out infinite;
+}
+
+/* shimmer text */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    var(--brand-gold) 0%,
+    #f0d060 40%,
+    var(--brand-gold) 60%,
+    #c89b20 100%
+  );
+  background-size: 400px 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3.5s linear infinite;
+}
+
+/* rotate slowly — for decorative mural SVGs */
+.spin-slow {
+  animation: slowSpin 60s linear infinite;
+  transform-origin: center;
+}
+
+/* icon bounce on card hover (triggered via parent .program-card:hover .float-icon) */
+.program-card:hover .float-icon {
+  animation: iconBounce 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}

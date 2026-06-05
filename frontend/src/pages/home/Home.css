@@ -1,184 +1,471 @@
 /* removed local font import in favor of global fonts.css */
-.home-page { color: #333; background-color: #fff; }
+.home-page { color: #333; background-color: #fff; overflow-x: hidden; }
 
-/* --- HERO SECTION --- */
+/* ── HERO ───────────────────────────────────────────────── */
 .hero {
-  min-height: 90vh;
+  min-height: 92vh;
   position: relative;
   background-image: url('/images/heroBG.jpg');
-  background-position: center 10%; /* shift focal point upwards to reveal face */
+  background-position: center 10%;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: var(--brand-white);
-  border-bottom: 4px solid rgba(212,175,55,0.12);
   padding: 6rem 0;
-  padding-top:80px;
-  padding-bottom:80px;
   display: flex;
   align-items: center;
 }
 
-/* dark overlay so hero text remains readable over the photo */
+/* layered overlays for depth */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
-  /* navy-tinted overlay so text reads cleanly while preserving image warmth */
-  background: linear-gradient(180deg, rgba(11,37,69,0.6), rgba(11,37,69,0.3));
+  background: linear-gradient(160deg, rgba(11,37,69,0.78) 0%, rgba(11,37,69,0.35) 60%, rgba(11,37,69,0.65) 100%);
   z-index: 0;
 }
 
-.hero-title {
-  color: var(--brand-gold);
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.06);
+/* subtle animated colour band at the very bottom of the hero */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--brand-gold), #f0d060, var(--brand-gold), #c89b20, var(--brand-gold));
+  background-size: 400% 100%;
+  animation: gradientDrift 6s linear infinite;
+  z-index: 3;
+}
+
+/* ── Mural art SVGs (positioned absolutely in sections) ─── */
+.hero-mural {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+  max-width: 46vw;
   z-index: 1;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.programs-mural {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80%;
+  width: auto;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.stats-mural {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* ── Hero entrance animations (CSS-driven — no IntersectionObserver needed) ── */
+@keyframes heroEnter {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+.hero-enter {
+  animation: heroEnter 0.75s cubic-bezier(0.4, 0, 0.2, 1) both;
+  will-change: opacity, transform;
+}
+.hero-enter-1 { animation-delay: 0.05s; }
+.hero-enter-2 { animation-delay: 0.18s; }
+.hero-enter-3 { animation-delay: 0.30s; }
+.hero-enter-4 { animation-delay: 0.44s; }
+.hero-enter-5 { animation-delay: 0.56s; }
+
+/* ── Hero text ─────────────────────────────────────────── */
+.hero-eyebrow {
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brand-gold);
+  margin-bottom: 0.6rem;
+  opacity: 0.9;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  color: var(--brand-gold);
+  letter-spacing: -0.5px;
+  line-height: 1.1;
 }
 
 .hero-tagline {
-  margin-top: 8px;
-  margin-bottom: 12px;
-  color: var(--brand-gold);
-  font-size: 1rem;
+  margin: 6px 0 14px;
+  color: rgba(255,255,255,0.68);
+  font-size: 0.9rem;
   font-weight: 500;
-  opacity: 0.95;
-  text-transform: none;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
 }
-
-/* ensure the container and interactive elements sit above the hero overlay */
-.hero .container { position: relative; z-index: 1; }
-
-/* Hero animation */
-.hero .display-5 { transform: translateY(8px); opacity: 0; animation: heroIn 600ms ease forwards; }
-@keyframes heroIn { from { transform: translateY(18px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
-
-/* service cards stagger animation */
-.row.g-3 .article-card { opacity:0; transform: translateY(12px); animation: serviceIn .5s ease forwards; }
-.row.g-3 .col-md-4:nth-child(1) .article-card { animation-delay: 0.08s }
-.row.g-3 .col-md-4:nth-child(2) .article-card { animation-delay: 0.16s }
-.row.g-3 .col-md-4:nth-child(3) .article-card { animation-delay: 0.24s }
-@keyframes serviceIn { from { opacity:0; transform: translateY(12px) } to { opacity:1; transform: translateY(0) } }
 
 .hero-subtitle {
-  max-width: 650px;
-  margin: 1rem auto;
-  font-size: 1.1rem;
-  color: rgba(255,255,255,0.9);
-  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto 0;
+  font-size: 1.08rem;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.7;
 }
 
-.btn-main {
-  background-color: var(--brand-gold);
-  border: none;
-  border-radius: 30px;
-  padding: 0.75rem 2rem;
-  color: var(--brand-black);
-  font-weight: 500;
-  transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease, background-color 220ms ease;
-  position: relative; /* keep above overlays */
-  z-index: 2;
+.hero-cta-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
-.btn-main:hover {
-  background-color: color-mix(in srgb, var(--brand-gold) 78%, black 12%);
-  box-shadow: 0 10px 26px rgba(11,37,69,0.12);
-  color: var(--brand-black);
-  transform: translateY(-3px) scale(1.01);
+/* ── EQ QUOTE BAND ──────────────────────────────────────── */
+.eq-band {
+  background: var(--brand-charcoal);
+  color: #fff;
+  position: relative;
+  /* diamond pattern texture */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cpolygon points='30,2 58,30 30,58 2,30' fill='none' stroke='%23D4AF37' stroke-width='0.8' opacity='0.1'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, var(--brand-charcoal), var(--brand-charcoal));
 }
 
-.btn-main:active { transform: translateY(0) scale(0.995); }
-.btn-main:focus-visible { outline: 3px solid color-mix(in srgb, var(--brand-gold) 36%, transparent 64%); outline-offset: 4px; }
-
-.btn-outline-main {
-  border: 2px solid var(--brand-gold);
+.eq-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  color: rgba(255,255,255,0.92);
+  font-style: italic;
+  line-height: 1.6;
+}
+.eq-highlight {
   color: var(--brand-gold);
-  border-radius: 30px;
-  padding: 0.6rem 1.8rem;
-  transition: all 0.3s ease;
+  font-style: normal;
+  font-weight: 700;
+}
+.eq-attribution {
+  margin-top: 0.65rem;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
 }
 
-.btn-outline-main:hover {
-  background-color: var(--brand-gold);
-  color: var(--brand-black);
+/* ── EQ PILLARS ─────────────────────────────────────────── */
+.pillars-section {
+  /* chevron pattern */
+  background-color: var(--brand-cream);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40'%3E%3Cpath d='M0 40 L40 0 L80 40' fill='none' stroke='%23D4AF37' stroke-width='1' opacity='0.12'/%3E%3C/svg%3E");
 }
 
-/* --- SERVICES SECTION --- */
-.services-section {
-  background-color: #fdfdfd;
-}
-
-.section-title {
+.pillars-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
   color: var(--brand-charcoal);
+  opacity: 0.6;
+  margin-bottom: 1.2rem;
+}
+
+.pillars-row {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.pillar-chip {
+  background: var(--brand-primary);
+  color: var(--brand-gold);
   font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  box-shadow: 0 4px 14px rgba(11,37,69,0.18);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.pillar-chip:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(11,37,69,0.25);
+}
+.pillar-emoji { font-size: 1rem; }
+
+/* ── SECTION TYPOGRAPHY ─────────────────────────────────── */
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  color: var(--brand-charcoal);
+  font-weight: 400;
   position: relative;
 }
-
 .section-title::after {
   content: '';
-  width: 60px;
+  width: 52px;
   height: 3px;
   background: var(--brand-gold);
   display: block;
   margin: 10px auto 0;
   border-radius: 3px;
 }
+.section-sub {
+  color: #666;
+  font-size: 0.98rem;
+  max-width: 540px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.65;
+}
 
-/* --- SIMPLE SERVICE LIST FOR HOME --- */
-.services-list { margin-top: 1rem; }
-.service-item { display: flex; align-items: center; justify-content: center; }
-.service-name {
-  font-weight: 600;
-  color: var(--brand-charcoal);
-  background: rgba(212,175,55,0.06);
-  padding: 0.8rem 1rem;
-  border-radius: 10px;
-  text-align: center;
-  min-height: 56px;
-  display: flex;
+/* ── TRAINING PROGRAM CARDS ─────────────────────────────── */
+.programs-section {
+  position: relative;
+  /* dot grid pattern */
+  background-color: #fff;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Ccircle cx='20' cy='20' r='1.5' fill='%23D4AF37' opacity='0.08'/%3E%3C/svg%3E");
+}
+
+.program-card {
+  background: #fff;
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  height: 100%;
+  transition: transform 240ms cubic-bezier(0.2,0.9,0.2,1), box-shadow 240ms ease, border-color 240ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* gold corner accent */
+.program-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 56px; height: 56px;
+  background: linear-gradient(225deg, rgba(212,175,55,0.18) 0%, transparent 70%);
+  border-radius: 0 16px 0 0;
+  transition: width 300ms ease, height 300ms ease;
+}
+
+.program-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(11,37,69,0.1);
+  border-color: rgba(212,175,55,0.45);
+}
+.program-card:hover::before {
+  width: 90px; height: 90px;
+}
+
+.program-icon-wrap {
+  position: relative;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: rgba(212,175,55,0.08);
+  border-radius: 14px;
+  margin-bottom: 1rem;
 }
-.service-name:hover { transform: translateY(-3px); transition: transform 160ms ease; }
-
-/* --- CTA SECTION --- */
-.cta-section {
-  background: linear-gradient(135deg, var(--brand-gold) 0%, rgba(212,175,55,0.12) 100%);
-  color: var(--brand-white);
-  border-radius: 0;
+.program-emoji {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 1.05rem;
+  line-height: 1;
 }
-
-.cta-section .btn-main {
-  background-color: var(--brand-white);
-  color: var(--brand-gold);
-  font-weight: 600;
-}
-
-.cta-section .btn-main:hover {
-  background-color: color-mix(in srgb, var(--brand-white) 86%, var(--brand-charcoal) 6%);
+.program-icon { color: var(--brand-gold); }
+.program-title {
+  font-family: var(--font-serif);
+  font-weight: 700;
   color: var(--brand-charcoal);
+  font-size: 1.05rem;
+  margin-bottom: 0.55rem;
+}
+.program-desc {
+  font-size: 0.88rem;
+  color: #666;
+  line-height: 1.65;
+  margin: 0;
 }
 
-/* --- CARD / ARTICLE STYLING --- */
-.article-card {
+/* ── IMPACT STATS ───────────────────────────────────────── */
+.stats-section {
+  position: relative;
+  background: var(--brand-primary);
+  overflow: hidden;
+}
+
+.stat-item { padding: 0.5rem; }
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+  /* shimmer applied via .shimmer-text in animations.css */
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+
+/* ── BOOKING OPTIONS ────────────────────────────────────── */
+.booking-options-section {
+  background: #f5f5f3;
+  /* diamond tile */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Cpolygon points='28,2 54,28 28,54 2,28' fill='none' stroke='%23D4AF37' stroke-width='0.7' opacity='0.09'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, #f5f5f3, #f5f5f3);
+}
+
+.booking-option-card {
+  background: #fff;
+  border: 1px solid rgba(212,175,55,0.15);
+  border-radius: 16px;
+  padding: 1.8rem 1.2rem;
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.booking-option-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(11,37,69,0.09);
+}
+.booking-option-emoji {
+  font-size: 1.8rem;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.booking-option-icon {
+  font-size: 1.2rem;
+  color: var(--brand-gold);
+  margin-bottom: 0.6rem;
+  display: none; /* shown on non-emoji viewports fallback */
+}
+.booking-option-label {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  color: var(--brand-charcoal);
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+}
+.booking-option-sub {
+  font-size: 0.78rem;
+  color: #888;
+}
+
+/* ── CTA SECTION ────────────────────────────────────────── */
+.cta-section {
+  background: linear-gradient(135deg, var(--brand-primary) 0%, #1a3a6b 100%);
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='40'%3E%3Cpath d='M0 40 L40 0 L80 40' fill='none' stroke='%23D4AF37' stroke-width='0.8' opacity='0.08'/%3E%3C/svg%3E"),
+    linear-gradient(135deg, var(--brand-primary) 0%, #1a3a6b 100%);
+  color: var(--brand-white);
+}
+.cta-section h3 {
+  font-family: var(--font-display);
+  color: var(--brand-gold);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+}
+.cta-section p {
+  color: rgba(255,255,255,0.78);
+  max-width: 540px;
+  margin: 0 auto 1.5rem;
+}
+
+/* ── SHARED BUTTON TOKENS ───────────────────────────────── */
+.btn-main {
+  background-color: var(--brand-gold);
   border: none;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 30px;
+  padding: 0.75rem 2rem;
+  color: var(--brand-black);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  transition: transform 220ms cubic-bezier(.2,.9,.2,1), box-shadow 220ms ease, background-color 220ms ease;
+  position: relative;
+  z-index: 2;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.btn-main:hover {
+  background-color: #b4942f;
+  box-shadow: 0 10px 26px rgba(11,37,69,0.18);
+  color: var(--brand-black);
+  transform: translateY(-2px) scale(1.01);
+}
+.btn-main:active { transform: translateY(0) scale(0.995); }
+.btn-main:focus-visible { outline: 3px solid rgba(212,175,55,0.5); outline-offset: 4px; }
+
+.btn-outline-main {
+  border: 2px solid var(--brand-gold);
+  color: var(--brand-gold);
+  border-radius: 30px;
+  padding: 0.65rem 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.25s ease;
+  background: transparent;
+}
+.btn-outline-main:hover {
+  background-color: var(--brand-gold);
+  color: var(--brand-black);
 }
 
-.article-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+.btn-outline-hero {
+  border: 2px solid rgba(255,255,255,0.65);
+  color: #fff;
+  border-radius: 30px;
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  background: transparent;
+  transition: all 0.25s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.btn-outline-hero:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: #fff;
+  color: #fff;
 }
 
-/* --- RESPONSIVE --- */
+/* ── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 768px) {
   .hero {
-    padding: 4rem 1rem;
-    background-position: center top; /* on small screens prioritize top of image */
-    background-attachment: scroll; /* avoid fixed background on mobile for performance */
+    padding: 4.5rem 1rem 5rem;
+    background-position: center top;
+    background-attachment: scroll;
   }
-  .hero-title {
-    font-size: 2rem;
-  }
+  .hero-mural { opacity: 0.25; max-width: 70vw; }
+  .hero-title  { font-size: 2.2rem; }
+  .hero-cta-group { flex-direction: column; align-items: center; }
+  .eq-quote    { font-size: 1rem; }
+  .stat-num    { font-size: 2rem; }
+  .programs-mural { display: none; }
 }

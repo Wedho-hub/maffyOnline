@@ -1,0 +1,209 @@
+/* ---- HERO ---- */
+.book-hero {
+  background: linear-gradient(135deg, var(--brand-primary) 0%, #1a3a6b 100%);
+  padding: 4.5rem 0 3.5rem;
+  color: #fff;
+}
+.book-hero-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-gold);
+  opacity: 0.85;
+  margin-bottom: 0.5rem;
+}
+.book-hero-title {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--brand-gold);
+  margin-bottom: 0.75rem;
+}
+.book-hero-sub {
+  color: rgba(255,255,255,0.8);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* ---- BODY LAYOUT ---- */
+.book-body { max-width: 1100px; }
+
+.book-section-title {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--brand-charcoal);
+  margin-bottom: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(212,175,55,0.2);
+}
+
+/* ---- SESSION TYPE CARDS ---- */
+.session-type-card {
+  width: 100%;
+  background: #fff;
+  border: 2px solid rgba(212,175,55,0.15);
+  border-radius: 14px;
+  padding: 1.5rem 1.2rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  height: 100%;
+}
+.session-type-card:hover {
+  border-color: rgba(212,175,55,0.5);
+  box-shadow: 0 6px 20px rgba(11,37,69,0.07);
+  transform: translateY(-2px);
+}
+.session-type-card.selected {
+  border-color: var(--brand-gold);
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.18), 0 6px 24px rgba(11,37,69,0.1);
+  background: #fffdf0;
+}
+
+.session-badge {
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  background: var(--brand-gold);
+  color: var(--brand-black);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: 20px;
+}
+
+.session-type-icon {
+  color: var(--brand-gold);
+  margin-bottom: 0.5rem;
+}
+.session-type-title {
+  font-weight: 700;
+  color: var(--brand-charcoal);
+  font-size: 1rem;
+}
+.session-type-format {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--brand-gold);
+  opacity: 0.8;
+}
+.session-type-desc {
+  font-size: 0.87rem;
+  color: #666;
+  line-height: 1.55;
+  margin: 0.4rem 0 0.6rem;
+}
+.session-includes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.session-includes li {
+  font-size: 0.8rem;
+  color: #555;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+.include-icon {
+  color: var(--brand-gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+  font-size: 0.75rem;
+}
+
+.selected-tick {
+  position: absolute;
+  bottom: 0.9rem;
+  right: 0.9rem;
+  color: var(--brand-gold);
+  font-size: 1.1rem;
+}
+
+/* ---- BOOKING FORM ---- */
+.book-form-section { margin-top: 2rem; }
+.book-form .form-label { font-weight: 600; font-size: 0.87rem; color: var(--brand-charcoal); margin-bottom: 0.3rem; }
+.book-form .form-control,
+.book-form .form-select {
+  border-radius: 8px;
+  border: 1.5px solid #ddd;
+  font-size: 0.93rem;
+  padding: 0.55rem 0.9rem;
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+.book-form .form-control:focus,
+.book-form .form-select:focus {
+  border-color: var(--brand-gold);
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.15);
+  outline: none;
+}
+
+/* ---- SUCCESS STATE ---- */
+.book-success {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: #fffdf0;
+  border: 2px solid rgba(212,175,55,0.3);
+  border-radius: 16px;
+}
+.book-success .success-icon {
+  font-size: 3rem;
+  color: var(--brand-gold);
+  margin-bottom: 1rem;
+}
+.book-success h3 { color: var(--brand-charcoal); }
+.book-success p { color: #555; max-width: 420px; margin: 0 auto; }
+
+/* ---- ALT CONTACT ---- */
+.book-alt-contact { border-top: 1px solid #eee; padding-top: 2rem; }
+.book-alt-label { color: #888; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; }
+.book-alt-note { font-size: 0.8rem; color: #aaa; }
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  padding: 0.65rem 1.5rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: background 200ms ease;
+  text-decoration: none;
+}
+.btn-whatsapp:hover { background: #1fb855; color: #fff; }
+
+/* ---- TOOLS CALLOUT ---- */
+.tools-callout {
+  background: var(--brand-cream);
+  border-radius: 14px;
+  padding: 1.8rem 2rem;
+}
+.tools-callout-title {
+  font-family: var(--font-serif);
+  color: var(--brand-charcoal);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.tools-callout-body { font-size: 0.9rem; color: #555; line-height: 1.65; margin: 0; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .book-hero-title { font-size: 2rem; }
+  .session-type-card { padding: 1.2rem 1rem; }
+}

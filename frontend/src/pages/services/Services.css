@@ -3,7 +3,7 @@
 
 /* ========== HERO SECTION ========== */
 .services-hero {
-  background: linear-gradient(135deg, var(--brand-primary) 0%, color-mix(in srgb, var(--brand-primary) 80%, var(--brand-burgundy) 20%) 100%);
+  background: linear-gradient(135deg, var(--brand-primary) 0%, #1a2a45 100%);
   color: #fff;
   padding: 5rem 0 4rem;
   text-align: center;
@@ -88,13 +88,13 @@
   justify-content: center;
   width: 72px;
   height: 72px;
-  background: color-mix(in srgb, var(--brand-gold) 10%, transparent 90%);
+  background: rgba(212,175,55,0.1);
   border-radius: 12px;
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .services-list .service-card:hover .service-icon {
-  background: color-mix(in srgb, var(--brand-gold) 16%, transparent 84%);
+  background: rgba(212,175,55,0.16);
   transform: scale(1.1);
 }
 
@@ -129,7 +129,7 @@
 }
 
 .btn-read:hover {
-  background: color-mix(in srgb, var(--brand-gold) 85%, black 10%);
+  background: #b4942f;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2);
 }
@@ -192,4 +192,40 @@
 .btn-read { transition: transform 160ms ease, box-shadow 160ms ease }
 .btn-read:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.12) }
 
-/* placeholder for typo filename — not used */
+/* eyebrow label above hero title */
+.services-hero-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-gold);
+  opacity: 0.8;
+  margin-bottom: 0.5rem;
+}
+
+/* "Most Popular" badge on service card */
+.service-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--brand-gold);
+  color: var(--brand-black);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.65rem;
+  border-radius: 20px;
+}
+
+/* modal icon wrapper */
+.modal-icon-wrap {
+  width: 64px;
+  height: 64px;
+  background: rgba(212,175,55,0.1);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
