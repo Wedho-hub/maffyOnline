@@ -63,7 +63,7 @@ const About = () => {
             </svg>
             <h2 className="h5">Meet the Senior Consultant</h2>
             <p>
-              Tinashe Moya is the Senior Consultant at Maffy Online — an experienced HR practitioner and public speaker
+              Tinashe Moya is the Senior Consultant and Founder at Maffy Online — an experienced HR practitioner and public speaker
               with a decade-long track record in recruitment, training and organisational development. She partners with
               organisations to design people-centred solutions that reduce turnover, sharpen performance and build resilient
               teams tuned to strategic goals.
