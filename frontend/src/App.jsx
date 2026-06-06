@@ -1,4 +1,5 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Navbar from './components/navbar/Navbar';
 import Footer from './components/footer/Footer';
 import Home from './pages/home/Home';
@@ -11,13 +12,20 @@ import BookSession from './pages/book/BookSession';
 import Admin from './pages/admin/Admin';
 import useGlobalReveal from './hooks/useGlobalReveal';
 
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+};
+
 // Inner component so useGlobalReveal runs inside <Router> context
 const AppShell = () => {
   useGlobalReveal();
   return (
     <>
+      <ScrollToTop />
       <Navbar />
-      <main className="container my-5">
+      <main className="container-fluid p-0">
         <Routes>
           <Route path="/"            element={<Home />} />
           <Route path="/about"       element={<About />} />

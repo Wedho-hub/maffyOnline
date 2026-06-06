@@ -1,4 +1,9 @@
-.navbar { transition: all 0.3s ease-in-out; z-index: 1000; }
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: box-shadow 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
 
 
 .brand-text {
